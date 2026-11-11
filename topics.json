@@ -1,0 +1,52 @@
+{
+  "queue": [
+    {
+      "topic": "Aka Manto (the red cloak in the bathroom)",
+      "hint": "Japanese school bathroom legend; a voice asks 'red paper or blue paper?'; several documented variants."
+    },
+    {
+      "topic": "Hitori Kakurenbo (playing hide-and-seek alone)",
+      "hint": "A ritual with a stuffed doll, rice and a needle; widely discussed Japanese ritual legend."
+    },
+    {
+      "topic": "Kokkuri-san",
+      "hint": "Japanese table-turning spirit game, related to Western spirit boards; documented origin in the Meiji era."
+    },
+    {
+      "topic": "Yuki-onna (the snow woman)",
+      "hint": "Classic yokai of Japanese folklore; documented in Lafcadio Hearn's Kwaidan and regional folktales."
+    },
+    {
+      "topic": "Noppera-bo (the faceless ghost)",
+      "hint": "Yokai with no face; famous story recorded by Lafcadio Hearn in Kwaidan."
+    },
+    {
+      "topic": "Jorogumo (the spider woman)",
+      "hint": "Yokai in Edo-period texts, a spider that takes the form of a woman."
+    },
+    {
+      "topic": "Rokurokubi (the long-necked woman)",
+      "hint": "Yokai in Edo-period texts and Hearn's Kwaidan; two documented types."
+    },
+    {
+      "topic": "Gashadokuro (the giant skeleton)",
+      "hint": "Giant skeleton yokai from Edo-period art, notably Utagawa Kuniyoshi's print."
+    },
+    {
+      "topic": "Kisaragi Station",
+      "hint": "Internet legend from a 2004 post on 2channel about a train station that does not exist."
+    },
+    {
+      "topic": "The Red Room (Akai Heya)",
+      "hint": "Japanese internet legend of a pop-up window and a red room; documented in 2000s Flash-animation lore."
+    },
+    {
+      "topic": "Kappa",
+      "hint": "River yokai of Japanese folklore with a water-filled dish on its head; widely documented."
+    },
+    {
+      "topic": "Tsukumogami",
+      "hint": "Objects that come alive after a hundred years; documented in Muromachi-era scrolls."
+    }
+  ]
+}
