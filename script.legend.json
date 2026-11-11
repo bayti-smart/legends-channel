@@ -1,0 +1,52 @@
+{
+  "mode": "legend",
+  "title": "Hanako-san: the girl in the third stall",
+  "lang": "en",
+  "speed": 0.9,
+  "voices": {"narrator": "am_onyx"},
+  "scenes": [
+    {"art": "school", "camera": "creep", "tag": "Japanese Legend", "title": "HANAKO-SAN", "sfx": ["creak"],
+     "text": "In schools all over Japan, children whisper one rule: never knock on the third stall.",
+     "image_prompt": "a dark abandoned Japanese elementary school at night, huge pale moon, one red glowing window on the third floor, fog, bare tree, iron fence"},
+
+    {"art": "school", "camera": "zoom_in", "label": "3RD FLOOR", "label_xy": [0.3, 0.50], "arrow": [0.63, 0.53, 25],
+     "text": "She waits on the third floor, in the third stall of the girls' bathroom.",
+     "image_prompt": "close view of the third floor windows of a dark school at night, one window glowing red, fog"},
+
+    {"art": "corridor_figure", "camera": "zoom_in", "sfx": ["creak"],
+     "text": "At night, the hallway goes silent. The lights begin to flicker.",
+     "image_prompt": "a long empty school corridor at night, flickering fluorescent lights, a small silhouette of a girl at the far end, red exit sign"},
+
+    {"art": "bathroom", "camera": "creep", "label": "THE 3RD STALL", "label_xy": [0.5, 0.60], "arrow": [0.52, 0.42, 20],
+     "text": "The ritual is simple. You walk in alone, and stand in front of the third door.",
+     "image_prompt": "a row of old teal toilet stalls in a school bathroom, the third door slightly open, darkness inside, red eyes glowing"},
+
+    {"art": "stall", "camera": "static", "sfx": ["knock"], "knocks": [0.6, 1.3, 2.0],
+     "text": "Knock three times. Then ask: Hanako-san, are you there?",
+     "image_prompt": "extreme close-up of a worn teal bathroom stall door, scratches, a red lock indicator, small shoes visible in the gap under the door"},
+
+    {"art": "eyes", "camera": "zoom_in", "scare": true, "sfx": ["sting", "whisper"], "title": "I AM HERE", "title_y": 0.14, "title_size": 190,
+     "text": "And if the legend is true, a small voice answers: I am here.",
+     "image_prompt": "pitch black darkness with a pale girl's face with a bob haircut, glowing red eyes, horror comic style"},
+
+    {"art": "girl", "camera": "zoom_in",
+     "text": "Some say she is only a lonely girl. Others say she is something else.",
+     "image_prompt": "silhouette of a little girl with a bob haircut standing in a bright bathroom doorway, glowing red eyes, fog on the floor"},
+
+    {"art": "corridor", "camera": "pan_left",
+     "text": "Nobody knows where the story began. Some folklorists trace it back to the nineteen fifties.",
+     "image_prompt": "an old empty school corridor in the 1950s, wooden floor, dark windows, moonlight, dust"},
+
+    {"art": "bathroom_empty", "camera": "zoom_out",
+     "text": "And every generation of children keeps daring each other to knock.",
+     "image_prompt": "an empty school bathroom with a row of stalls, cold light, silent, ominous"},
+
+    {"art": "stall", "camera": "zoom_in", "sfx": ["boom"], "title": "WOULD YOU KNOCK?", "title_y": 0.15, "title_size": 150,
+     "text": "So tell me. Would you knock?",
+     "image_prompt": "a single bathroom stall door in dark lighting, one pale small hand under the door"},
+
+    {"collage": true, "tag": "Japanese Legend", "title": "LEGENDS", "title_y": 0.69, "title_size": 230,
+     "panels": [{"art": "school", "label": "SCHOOL"}, {"art": "forest", "label": "FOREST"}, {"art": "bathroom", "label": "HANAKO"}],
+     "text": "Next legend: the forest nobody walks through at night. Follow if you dare."}
+  ]
+}
