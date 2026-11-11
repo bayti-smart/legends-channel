@@ -1,0 +1,310 @@
+{
+  "title": "What if the Moon disappeared?",
+  "lang": "en",
+  "characters": {
+    "max": {
+      "scale": 0.84,
+      "shirt": "#FF7A00",
+      "stripe": "#FFFFFF",
+      "pants": "#3B6FD8",
+      "shorts": true,
+      "shoes": "#E63946",
+      "hair": "spiky",
+      "hair_color": "#4A2C17",
+      "cap_color": "#FFE600"
+    },
+    "prof": {
+      "scale": 1.0,
+      "shirt": "#FFFFFF",
+      "coat": true,
+      "inner": "#5DA9E9",
+      "pants": "#4B5563",
+      "shoes": "#6B4226",
+      "hair": "tufts",
+      "hair_color": "#E5E7EB",
+      "glasses": true,
+      "mustache": true,
+      "bowtie": true,
+      "cap_color": "#4DD2FF"
+    }
+  },
+  "voices": {
+    "narrator": "af_heart",
+    "max": "am_liam",
+    "prof": "bm_george"
+  },
+  "scenes": [
+    {
+      "speaker": "narrator",
+      "env": "night0",
+      "shake": true,
+      "headline": "NO MOON?!",
+      "impact": "GONE!",
+      "text": "What if the Moon vanished tonight? The third thing will terrify you.",
+      "cast": {
+        "max": {
+          "pose": "scared"
+        }
+      }
+    },
+    {
+      "speaker": "max",
+      "env": "night0",
+      "text": "Professor! Look at the sky! The Moon is gone!",
+      "cast": {
+        "max": {
+          "pose": "shock",
+          "face": "surprised",
+          "prop": "question"
+        },
+        "prof": {
+          "pose": "idle"
+        }
+      }
+    },
+    {
+      "speaker": "prof",
+      "env": "night0",
+      "text": "Calm down, Max. Let's see what would really happen.",
+      "cast": {
+        "max": {
+          "pose": "scared"
+        },
+        "prof": {
+          "pose": "talk",
+          "face": "smile"
+        }
+      }
+    },
+    {
+      "speaker": "narrator",
+      "env": "night0",
+      "headline": "1. DARK NIGHTS",
+      "text": "Number one. Nights would become much darker.",
+      "cast": {
+        "max": {
+          "pose": "scared"
+        },
+        "prof": {
+          "pose": "think"
+        }
+      }
+    },
+    {
+      "speaker": "prof",
+      "env": "night0",
+      "text": "Moonlight is just sunlight bouncing off the Moon. Without it, only starlight is left.",
+      "cast": {
+        "max": {
+          "pose": "idle"
+        },
+        "prof": {
+          "pose": "point",
+          "prop": "bulb"
+        }
+      }
+    },
+    {
+      "speaker": "max",
+      "env": "night0",
+      "text": "Would animals get confused too?",
+      "cast": {
+        "max": {
+          "pose": "think",
+          "prop": "question"
+        },
+        "prof": {
+          "pose": "idle"
+        }
+      }
+    },
+    {
+      "speaker": "prof",
+      "env": "night0",
+      "text": "Yes! Many night animals use moonlight to find their way.",
+      "cast": {
+        "max": {
+          "pose": "shock"
+        },
+        "prof": {
+          "pose": "talk",
+          "prop": "check"
+        }
+      }
+    },
+    {
+      "speaker": "narrator",
+      "env": "ocean",
+      "headline": "2. WEAK TIDES",
+      "text": "Number two. The ocean tides would shrink.",
+      "cast": {
+        "max": {
+          "pose": "walk"
+        },
+        "prof": {
+          "pose": "walk"
+        }
+      }
+    },
+    {
+      "speaker": "prof",
+      "env": "ocean",
+      "text": "The Moon's gravity pulls on the sea. That is what makes tides!",
+      "cast": {
+        "max": {
+          "pose": "think"
+        },
+        "prof": {
+          "pose": "point",
+          "prop": "moon"
+        }
+      }
+    },
+    {
+      "speaker": "max",
+      "env": "ocean",
+      "text": "So no Moon means tiny tides?",
+      "cast": {
+        "max": {
+          "pose": "talk",
+          "prop": "question"
+        },
+        "prof": {
+          "pose": "idle"
+        }
+      }
+    },
+    {
+      "speaker": "prof",
+      "env": "ocean",
+      "text": "Exactly! The Sun would still pull a little, but much less.",
+      "cast": {
+        "max": {
+          "pose": "idle",
+          "face": "big"
+        },
+        "prof": {
+          "pose": "talk",
+          "prop": "sun"
+        }
+      }
+    },
+    {
+      "speaker": "narrator",
+      "env": "moon",
+      "shake": true,
+      "headline": "3. EARTH WOBBLE",
+      "impact": "WOBBLE!",
+      "text": "Number three. The scary one. Earth would start to wobble.",
+      "cast": {
+        "max": {
+          "pose": "scared"
+        },
+        "prof": {
+          "pose": "shock"
+        }
+      }
+    },
+    {
+      "speaker": "prof",
+      "env": "moon",
+      "text": "The Moon holds Earth steady, like a hand on a spinning top.",
+      "cast": {
+        "max": {
+          "pose": "think"
+        },
+        "prof": {
+          "pose": "point",
+          "prop": "earth",
+          "prop_scale": 1.25
+        }
+      }
+    },
+    {
+      "speaker": "max",
+      "env": "moon",
+      "text": "And without it?",
+      "cast": {
+        "max": {
+          "pose": "scared",
+          "prop": "question"
+        },
+        "prof": {
+          "pose": "idle"
+        }
+      }
+    },
+    {
+      "speaker": "prof",
+      "env": "moon",
+      "text": "Over millions of years, our seasons could swing wildly.",
+      "cast": {
+        "max": {
+          "pose": "scared"
+        },
+        "prof": {
+          "pose": "talk",
+          "face": "sad",
+          "prop": "fire"
+        }
+      }
+    },
+    {
+      "speaker": "max",
+      "env": "night0",
+      "text": "Okay, Professor, please bring the Moon back!",
+      "cast": {
+        "max": {
+          "pose": "sad",
+          "face": "sad"
+        },
+        "prof": {
+          "pose": "idle"
+        }
+      }
+    },
+    {
+      "speaker": "prof",
+      "env": "night0",
+      "impact": "LOL!",
+      "text": "Max, it is just a New Moon. It is still up there. We just cannot see it tonight!",
+      "cast": {
+        "max": {
+          "pose": "idle"
+        },
+        "prof": {
+          "pose": "laugh"
+        }
+      }
+    },
+    {
+      "speaker": "max",
+      "env": "night0",
+      "text": "Oh... I feel so silly.",
+      "cast": {
+        "max": {
+          "pose": "idle",
+          "face": "blush"
+        },
+        "prof": {
+          "pose": "laugh"
+        }
+      }
+    },
+    {
+      "speaker": "narrator",
+      "env": "night",
+      "headline": "FOLLOW FOR MORE",
+      "text": "Follow for more, and find out what happens if the Sun goes out!",
+      "cast": {
+        "max": {
+          "pose": "celebrate",
+          "prop": "star"
+        },
+        "prof": {
+          "pose": "wave"
+        }
+      }
+    }
+  ]
+}
