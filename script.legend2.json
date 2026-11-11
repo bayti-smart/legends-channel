@@ -1,0 +1,52 @@
+{
+  "mode": "legend",
+  "title": "Kuchisake-onna: the woman in the mask",
+  "lang": "en",
+  "speed": 0.9,
+  "voices": {"narrator": "am_onyx"},
+  "scenes": [
+    {"art": "street", "camera": "creep", "tag": "Japanese Legend", "title": "KUCHISAKE-ONNA", "sfx": ["creak"],
+     "text": "On a dark street, a woman in a white surgical mask stops you, and asks one question.",
+     "image_prompt": "a dark rainy Tokyo suburb street at night, flickering streetlamps, fog, empty road, ominous mood"},
+
+    {"art": "street_figure", "camera": "zoom_in", "arrow": [0.55, 0.50, 25],
+     "text": "Nineteen seventy-nine. Children all over Japan told the same story.",
+     "image_prompt": "a tall silhouette of a woman with long black hair and a white surgical mask standing far down a foggy night street under a lamp, red glowing eyes"},
+
+    {"art": "school", "camera": "pan_right",
+     "text": "Schools changed their rules, and police increased their patrols.",
+     "image_prompt": "a Japanese elementary school at dusk, empty gate, long shadows, a few children hurrying home together, tense mood"},
+
+    {"art": "mask", "camera": "zoom_in", "sfx": ["whisper"],
+     "text": "The story says she has long black hair, and a pale white mask.",
+     "image_prompt": "close-up of a woman with long black hair and a white surgical mask, glowing red eyes, dark teal background, horror comic style"},
+
+    {"art": "street_figure", "camera": "zoom_in", "scare": true, "sfx": ["sting"], "title": "AM I PRETTY?", "title_y": 0.14, "title_size": 190,
+     "text": "She steps out of the dark, and asks softly: Am I pretty?",
+     "image_prompt": "a woman in a surgical mask stepping out of the fog toward the viewer under a streetlamp, red eyes, horror comic style"},
+
+    {"art": "mask", "camera": "creep", "sfx": ["creak"], "glitch": true,
+     "text": "If you say yes, she pulls down the mask, and asks again: Even like this?",
+     "image_prompt": "dark close-up of a woman's hand slowly pulling down a white surgical mask, face hidden in shadow, red glowing eyes"},
+
+    {"art": "street", "camera": "zoom_out", "label": "THE TRICK", "label_xy": [0.5, 0.58],
+     "text": "Some say the trick is to answer with a question of your own, to confuse her.",
+     "image_prompt": "a lone child standing in the middle of a foggy night street holding a small umbrella, facing the dark"},
+
+    {"art": "forest", "camera": "pan_left",
+     "text": "Where did she come from? Some folklorists trace her back to Japan's Edo period.",
+     "image_prompt": "an old Edo period Japanese village road at dusk, wooden houses, paper lanterns, fog, a single figure in the distance"},
+
+    {"art": "school", "camera": "creep",
+     "text": "But the modern story began in nineteen seventy-eight, and exploded across Japan the next year.",
+     "image_prompt": "a 1979 Japanese neighborhood at night with phone booths and vending machines glowing, fog, eerie"},
+
+    {"art": "street_figure", "camera": "zoom_in", "sfx": ["boom"], "title": "DON'T ANSWER", "title_y": 0.15, "title_size": 170,
+     "text": "So if a stranger in a mask ever asks you a question tonight... don't answer. Run.",
+     "image_prompt": "a masked woman on a dark street, very close, red glowing eyes, extreme horror comic style"},
+
+    {"collage": true, "tag": "Japanese Legend", "title": "LEGENDS", "title_y": 0.69, "title_size": 230,
+     "panels": [{"art": "street_figure", "label": "KUCHISAKE"}, {"art": "forest", "label": "FOREST"}, {"art": "bathroom", "label": "HANAKO"}],
+     "text": "Which legend should be next? Comment below, and follow if you dare."}
+  ]
+}
