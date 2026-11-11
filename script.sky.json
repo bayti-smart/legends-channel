@@ -1,0 +1,19 @@
+{
+  "title": "Why is the sky blue?",
+  "lang": "en",
+  "character": {"glasses": false, "hat": true, "tie": false},
+  "scenes": [
+    {"text": "Why is the sky blue?", "pose": "shock", "env": "sky", "prop": "question", "headline": "Why is the sky blue?"},
+    {"text": "Sunlight looks white, but it is secretly a rainbow!", "pose": "point", "env": "sky", "prop": "star", "impact": "RAINBOW!"},
+    {"text": "Every color travels as a tiny wave.", "pose": "talk", "env": "room", "face": "smile"},
+    {"text": "Red waves are long and lazy.", "pose": "idle", "env": "city", "face": "smile"},
+    {"text": "Blue waves are short and super bouncy.", "pose": "dance", "env": "city", "prop": "heart"},
+    {"text": "When sunlight hits the air, it crashes into tiny gas molecules.", "pose": "run", "env": "sky"},
+    {"text": "Short blue waves get bounced around everywhere!", "pose": "celebrate", "env": "sky", "prop": "bulb", "impact": "BOOM!"},
+    {"text": "So blue light fills the whole sky.", "pose": "wave", "env": "sky", "face": "big"},
+    {"text": "But wait, what about sunsets?", "pose": "think", "env": "night", "prop": "question", "headline": "Sunset twist"},
+    {"text": "At sunset, light travels a longer path.", "pose": "walk", "env": "city"},
+    {"text": "The blue gets scattered away, and red is left!", "pose": "shock", "env": "city", "prop": "fire", "impact": "WOW!"},
+    {"text": "Follow for more amazing science!", "pose": "celebrate", "env": "night", "prop": "star", "face": "big"}
+  ]
+}
