@@ -37,6 +37,10 @@ class Rejected(Exception):
     pass
 
 
+class Blocked(Rejected):
+    """The AI provider's safety filter refused the prompt: skip this topic."""
+
+
 # ───────────────────────── LLM (free Gemini key preferred, Claude optional) ─────────────────────────
 GEMINI_BASE = os.environ.get("GEMINI_API_BASE", "https://generativelanguage.googleapis.com")
 GEMINI_MODELS = [m.strip() for m in os.environ.get("GEMINI_MODEL", "gemini-2.5-flash,gemini-3.5-flash,gemini-2.5-flash-lite").split(",") if m.strip()]
@@ -84,6 +88,9 @@ def gemini(prompt, max_tokens=8192, json_mode=True):
                 parts = ((data.get("candidates") or [{}])[0].get("content") or {}).get("parts") or []
                 if parts:
                     return "".join(p.get("text", "") for p in parts)
+                block = (data.get("promptFeedback") or {}).get("blockReason")
+                if block:
+                    raise Blocked(f"the safety filter blocked this topic ({block})")
                 errors.append(f"{model}: empty answer ({str(data.get('promptFeedback'))[:80]})")
                 break
             body = " ".join(r.text.split())[:140]
@@ -342,7 +349,7 @@ def run(a):
         spec = sanitize(json.load(open(a.script, encoding="utf-8")), narrator)
         topic = {"topic": spec.get("title", "test")}
     else:
-        for attempt in range(3):
+        for attempt in range(5):
             topic = {"topic": a.topic, "hint": ""} if a.topic else pick_topic(topics, published)
             if topic is None:
                 print("› topic queue empty — asking Claude for new legends")
@@ -366,7 +373,7 @@ def run(a):
                 if a.topic:
                     raise
         if spec is None:
-            raise RuntimeError("could not produce an accepted script after 3 topics")
+            raise RuntimeError("could not produce an accepted script after 5 topics")
         print(f"  fact-check issues fixed/noted: {len(issues)}")
     title, desc, tags, tiktok_caption = build_meta(spec, topic, sources)
     slug = re.sub(r"[^a-z0-9]+", "-", topic["topic"].lower()).strip("-")[:40] or "legend"
