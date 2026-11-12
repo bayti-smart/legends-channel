@@ -293,7 +293,10 @@ def render(script_path, out_path):
     if os.environ.get("IMAGE_API_KEY") or os.environ.get("IMAGE_PROVIDER"):
         cmd.append("--imagegen")
     cmd += os.environ.get("RENDER_ARGS", "").split()
-    subprocess.run(cmd, check=True, cwd=HERE)
+    r = subprocess.run(cmd, cwd=HERE, capture_output=True, text=True)
+    print((r.stdout or "")[-2500:])
+    if r.returncode:
+        raise RuntimeError("render failed: " + ((r.stderr or "") + (r.stdout or ""))[-900:])
 
 
 # ───────────────────────── main ─────────────────────────
@@ -381,8 +384,10 @@ def main():
     a = ap.parse_args()
     try:
         run(a)
-    except Exception as e:                       # tell the owner, then fail the job
-        pub.telegram_message(f"❌ Daily legend pipeline failed: {type(e).__name__}: {str(e)[:500]}")
+    except Exception as e:                       # tell the owner, show the reason in the GitHub run page, then fail the job
+        msg = f"{type(e).__name__}: {e}"
+        print("::error title=Pipeline failed::" + msg.replace("\r", " ").replace("\n", " | ")[:1200])
+        pub.telegram_message(f"❌ Daily legend pipeline failed: {msg[:500]}")
         raise
 
 
