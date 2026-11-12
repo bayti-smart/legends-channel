@@ -42,11 +42,37 @@ GEMINI_BASE = os.environ.get("GEMINI_API_BASE", "https://generativelanguage.goog
 GEMINI_MODELS = [m.strip() for m in os.environ.get("GEMINI_MODEL", "gemini-2.5-flash,gemini-3.5-flash,gemini-2.5-flash-lite").split(",") if m.strip()]
 
 
+_models_cache = []
+
+
+def gemini_models(key):
+    """Models this key can use, newest flash first (Google retires models often, so we ask instead of hard-coding)."""
+    if _models_cache:
+        return _models_cache
+    pinned = [m.strip() for m in os.environ.get("GEMINI_MODEL", "").split(",") if m.strip()]
+    found = []
+    try:
+        r = requests.get(f"{GEMINI_BASE}/v1beta/models", params={"pageSize": 200}, headers={"x-goog-api-key": key}, timeout=60)
+        for m in r.json().get("models", []):
+            name = m.get("name", "").replace("models/", "")
+            if "generateContent" in m.get("supportedGenerationMethods", []) and name.startswith("gemini-") and "flash" in name \
+                    and not any(x in name for x in ("image", "tts", "live", "audio", "embedding", "thinking", "robotics", "computer", "learnlm")):
+                ver = [int(x) for x in re.findall(r"\d+", name.split("flash")[0])] or [0]
+                found.append((ver, "lite" not in name, "preview" not in name and "exp" not in name, name))
+    except Exception as e:
+        print("  (could not list Gemini models:", e, ")")
+    found.sort(reverse=True)
+    names = pinned + [n for *_, n in found if n not in pinned] + [m for m in GEMINI_MODELS if m not in pinned]
+    _models_cache.extend(dict.fromkeys(names))
+    print("  Gemini models to try:", _models_cache[:6])
+    return _models_cache
+
+
 def gemini(prompt, max_tokens=8192, json_mode=True):
     key = os.environ["GEMINI_API_KEY"]
-    last = None
-    for model in GEMINI_MODELS:                      # if a model is gone / rate limited, try the next one
-        for attempt in range(4):
+    errors = []
+    for model in gemini_models(key)[:8]:             # if a model is gone / rate limited, try the next one
+        for attempt in range(3):
             gen = {"maxOutputTokens": max_tokens, "temperature": 0.8}
             if json_mode:
                 gen["responseMimeType"] = "application/json"
@@ -58,14 +84,15 @@ def gemini(prompt, max_tokens=8192, json_mode=True):
                 parts = ((data.get("candidates") or [{}])[0].get("content") or {}).get("parts") or []
                 if parts:
                     return "".join(p.get("text", "") for p in parts)
-                last = f"{model}: empty answer ({data.get('promptFeedback')})"
+                errors.append(f"{model}: empty answer ({str(data.get('promptFeedback'))[:80]})")
                 break
-            last = f"{model}: HTTP {r.status_code} {r.text[:200]}"
-            if r.status_code in (429, 500, 503):
+            body = " ".join(r.text.split())[:140]
+            errors.append(f"{model}: HTTP {r.status_code} {body}")
+            if r.status_code in (429, 500, 503) and attempt < 2:
                 time.sleep(15 * (attempt + 1))
                 continue
             break
-    raise RuntimeError("Gemini failed: " + str(last))
+    raise RuntimeError("Gemini failed: " + " || ".join(errors)[:1500])
 
 
 def claude(prompt, tools=None, max_tokens=8000):
