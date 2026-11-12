@@ -143,19 +143,13 @@ def main():
                 for st in j.get("steps", []):
                     if st.get("conclusion") == "failure":
                         print("  failed step:", st["name"])
-            try:
-                z = gh.call("GET", f"/repos/{login}/{a.repo}/actions/runs/{run['id']}/logs", ok=(200,))
-                zf = zipfile.ZipFile(io.BytesIO(z.content))
-                for name in zf.namelist():
-                    if name.endswith(".txt") and "/" in name:
-                        text = zf.read(name).decode("utf-8", "replace").splitlines()
-                        err = [l for l in text if "Error" in l or "error" in l or "Traceback" in l]
-                        if err:
-                            print(f"--- {name} (last lines) ---")
-                            print("\n".join(text[-25:]))
-                            break
-            except SystemExit:
-                pass
+            try:   # the log archive lives on a host some sandboxes cannot reach: read the error annotations instead
+                for j in jobs:
+                    for an in gh.call("GET", f"/repos/{login}/{a.repo}/check-runs/{j['id']}/annotations").json():
+                        if an.get("annotation_level") == "failure" and "exit code" not in (an.get("message") or ""):
+                            print("  reason:", (an.get("message") or "")[:1500])
+            except Exception as e:
+                print("  (could not read details:", e, ")")
             sys.exit(1)
     print("✔ done:", f"https://github.com/{login}/{a.repo}")
 
