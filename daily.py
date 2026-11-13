@@ -218,7 +218,7 @@ Vary the structure from episode to episode (different hook type, different scene
 FACTCHECK = """You are a strict fact-checker and editor for a short folklore video script (JSON below).
 1. Verify EVERY factual claim (dates, places, names, rules of the legend, numbers, who documented it) against the SOURCE MATERIAL given after the script (and web search if you have it).
 2. Keep a claim only if the sources support it. Rewrite unsupported or disputed claims as "some versions say" / "some say", or delete them.
-3. Make sure nothing is graphic, gory, hateful, or about suicide or self-harm, and nothing is presented as real tragedy sensationalized for shock. Dread must come from atmosphere.
+3. Remove or rewrite anything that mentions harm to children, eating people, organs, blood, wounds, suicide or self-harm, or any graphic detail, even if the sources contain it. Dread must come only from atmosphere and suggestion. Also remove dry encyclopedic lines (lists of regions or dates) and keep a storyteller voice. Check that the art of every scene fits the real setting of the legend and change it if not.
 4. Keep the exact JSON structure and keys of the script (scenes, art, camera, sfx, title, label, arrow, collage, panels, meta ...). You may reword narration. Keep the number of scenes within +/-1.
 5. Return ONLY JSON: {{"verdict": "ok" | "fixed" | "reject", "issues": ["short strings"], "script": <the full corrected script>}}.
    Use "reject" only if the topic cannot be told accurately and safely.
