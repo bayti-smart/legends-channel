@@ -1262,13 +1262,15 @@ Topic: {topic}
 Return ONLY valid JSON, no markdown:
 {{"mode": "legend", "title": "...", "lang": "en", "speed": 0.9, "voices": {{"narrator": "am_onyx"}},
  "scenes": [
-  {{"text": "narration, 6-16 words", "art": one of ["school","corridor","corridor_figure","bathroom","bathroom_empty","stall","eyes","girl","forest"] (placeholder art used when no image exists),
+  {{"text": "narration, 6-16 words", "art": the built-in picture used when no image exists - pick the one that matches the scene SETTING: "school" (school building at night), "corridor"/"corridor_figure" (school hallway), "bathroom"/"bathroom_empty"/"stall" (school restroom), "eyes" (close-up of glowing red eyes), "mask" (woman in a surgical mask), "girl" (child silhouette in a doorway), "street"/"street_figure" (night city street), "forest" (misty forest path), "snow" (winter night with a pale woman in a white kimono), "shrine" (Japanese shrine torii gate in fog),
     "image_prompt": "a detailed illustration prompt for this scene (no text in the image)",
     "camera": one of ["creep","zoom_in","zoom_out","pan_left","pan_right","pan_up","pan_down","static"],
     "tag": optional small tag like "Japanese Legend" (first scene only), "title": optional big red title (max 3 words),
     "label": optional short white label (1-2 words), "arrow": optional [x, y, angle] fractions of the screen + angle in degrees,
     "sfx": optional list from ["knock","sting","whisper","creak","boom"], "scare": optional true for a jump-scare beat (max 2), "shake": optional true}}
  ]}}
+Hard content rules: never describe harm to children, never mention eating people, organs, blood, wounds or any gore, nothing about suicide or self-harm. Dread comes only from atmosphere and suggestion (something waits, a voice answers).
+Production rules: choose arts that fit the real setting of the legend (do NOT use school or bathroom arts for a legend that is not set in a school). Put "sfx" on at least 5 scenes (knock only when someone knocks), add a "label" or "arrow" on at least 3 scenes, exactly one scene with "scare": true, a different "camera" in neighbouring scenes, and a "title" only on the hook scene and the scare scene. Narration must sound like a storyteller, not an encyclopedia: short sentences, second person (you), no lists of regions or dates.
 Rules: about {n} scenes. Scene 1 is a hook that creates dread in one sentence ("Never knock on the third stall."). Tell the legend in escalating beats,
 mention that versions differ, and only use facts you are sure about (name places, dates and rules only if well documented).
 No gore, no real tragedies, no self-harm. Dread comes from atmosphere and suggestion. Last scene is a short call to action ("Follow for the next legend").
