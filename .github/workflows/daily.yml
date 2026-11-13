@@ -1,7 +1,7 @@
 name: Daily legend
 on:
-  schedule:
-    - cron: "0 21 * * *"        # every day 21:00 UTC (GitHub may delay it by some minutes) - change as you like
+  # schedule:                   # PAUSED until YouTube is linked. To switch on, remove the two leading '#' below.
+  #   - cron: "0 21 * * *"      # every day 21:00 UTC (GitHub may delay it by some minutes) - change as you like
   workflow_dispatch:
     inputs:
       dry_run:
@@ -47,6 +47,16 @@ jobs:
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
           if [ -n "${{ github.event.inputs.topic }}" ]; then ARGS="$ARGS --topic \"${{ github.event.inputs.topic }}\""; fi
           eval python daily.py $ARGS
+      - name: Publish a preview of the dry run (private pre-release)
+        if: always() && github.event.inputs.dry_run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          F=$(ls out/*.mp4 2>/dev/null | head -1)
+          if [ -n "$F" ]; then
+            TAG="preview-$(date +%Y%m%d-%H%M%S)"
+            gh release create "$TAG" "$F" out/*.json --title "$TAG" --notes "Dry-run preview (not published anywhere)" --prerelease
+          fi
       - name: Save state (topics / published list)
         if: always()
         run: |
