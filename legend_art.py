@@ -464,8 +464,98 @@ def art_mask(seed=9):
     return img, {"eyes": eyes, "hot": eyes[0]}
 
 
+def art_snow(seed=10):
+    rnd = random.Random(seed)
+    img = grad("#070D1B", "#2A3D5C")
+    glow(img, .30 * CW, .16 * CH, 150, (90, 110, 150), .8, blur=140)
+    d = ImageDraw.Draw(img)
+    mx, my, mr = .30 * CW, .16 * CH, .075 * CW
+    d.ellipse([mx - mr, my - mr, mx + mr, my + mr], fill="#E4ECF5", outline="#000000", width=5)
+    d.polygon([(0, .60 * CH), (.3 * CW, .52 * CH), (.65 * CW, .58 * CH), (CW, .50 * CH), (CW, CH), (0, CH)], fill="#C9D6E6", outline="#000000")
+    d.polygon([(0, .70 * CH), (.4 * CW, .64 * CH), (.8 * CW, .69 * CH), (CW, .65 * CH), (CW, CH), (0, CH)], fill="#E1EAF4", outline="#000000")
+    for k in range(26):                                   # snowy pines
+        x = rnd.uniform(-.05, 1.05) * CW
+        y = rnd.uniform(.56, .74) * CH
+        h = rnd.uniform(.08, .17) * CH
+        w = h * .45
+        for t in range(3):
+            yy = y - h + t * h * .35
+            d.polygon([(x, yy), (x - w * (.5 + t * .25), yy + h * .42), (x + w * (.5 + t * .25), yy + h * .42)], fill="#0B1620", outline="#000000")
+            d.polygon([(x, yy), (x - w * (.3 + t * .15), yy + h * .22), (x + w * (.3 + t * .15), yy + h * .22)], fill="#DCE6F2")
+    fx, fy, fh = .62 * CW, .67 * CH, .30 * CH           # the pale woman in a white kimono, long black hair
+    hy, hr = fy - fh * .86, fh * .055
+    d.polygon([(fx - fh * .10, fy - fh * .78), (fx + fh * .10, fy - fh * .78), (fx + fh * .22, fy), (fx - fh * .22, fy)], fill="#E9F0F7", outline="#000000")
+    d.polygon([(fx - fh * .13, fy - fh * .76), (fx - fh * .30, fy - fh * .40), (fx - fh * .18, fy - fh * .34), (fx - fh * .07, fy - fh * .60)], fill="#E9F0F7", outline="#000000")
+    d.polygon([(fx + fh * .13, fy - fh * .76), (fx + fh * .30, fy - fh * .40), (fx + fh * .18, fy - fh * .34), (fx + fh * .07, fy - fh * .60)], fill="#E9F0F7", outline="#000000")
+    d.polygon([(fx - hr * 1.3, hy - hr * .6), (fx, hy - hr * 1.4), (fx + hr * 1.3, hy - hr * .6), (fx + hr * 1.5, hy + hr * 7),
+               (fx + hr * .9, hy + hr * 6.6), (fx + hr * .85, hy), (fx - hr * .85, hy), (fx - hr * .9, hy + hr * 6.6), (fx - hr * 1.5, hy + hr * 7)], fill="#020305")
+    d.ellipse([fx - hr, hy - hr * .9, fx + hr, hy + hr * 1.1], fill="#F4F8FB")
+    eyes = [(fx - hr * .38, hy + hr * .05), (fx + hr * .38, hy + hr * .05)]
+    for ex, ey in eyes:
+        glow(img, ex, ey, 11, (225, 20, 20), 1.0, blur=12)
+    d = ImageDraw.Draw(img)
+    for ex, ey in eyes:
+        d.ellipse([ex - 7, ey - 4, ex + 7, ey + 4], fill="#FF2A2A")
+    fog(img, .60, .86, .30, seed, color=(190, 205, 225))
+    layer = Image.new("L", img.size, 0)                  # falling snow
+    ld = ImageDraw.Draw(layer)
+    for _ in range(260):
+        x, y, r = rnd.uniform(0, CW), rnd.uniform(0, CH), rnd.choice((2, 3, 3, 4, 6))
+        ld.ellipse([x - r, y - r, x + r, y + r], fill=rnd.randint(120, 230))
+    img.paste(Image.new("RGB", img.size, (235, 242, 250)), (0, 0), layer.filter(ImageFilter.GaussianBlur(1.2)))
+    hatch(img, alpha=26)
+    return img, {"eyes": eyes, "hot": (fx, hy)}
+
+
+def art_shrine(seed=11):
+    rnd = random.Random(seed)
+    img = grad("#05100E", "#1E3A36")
+    glow(img, .5 * CW, .30 * CH, 300, (60, 100, 90), .6, blur=260)
+    d = ImageDraw.Draw(img)
+    for k in range(18):                                   # background cedars
+        x = rnd.uniform(0, 1) * CW
+        w = rnd.uniform(18, 34)
+        d.polygon([(x - w, CH), (x - w * .7, .1 * CH), (x + w * .7, .1 * CH), (x + w, CH)], fill="#0A1A16")
+    fog(img, .35, .70, .30, seed, color=(140, 180, 165))
+    d = ImageDraw.Draw(img)
+    vx = .5 * CW
+    d.polygon([(vx - .06 * CW, .52 * CH), (vx + .06 * CW, .52 * CH), (CW * .85, CH), (CW * .15, CH)], fill="#1A2B28", outline="#000000")
+    for k in range(9):                                    # stone steps
+        t = k / 9
+        y = (.54 + .44 * t ** 1.4) * CH
+        w = (.07 + .33 * t ** 1.4) * CW
+        d.line([vx - w, y, vx + w, y], fill="#30463F", width=int(4 + 10 * t))
+    for tx, ty, s_ in ((.5, .50, .32), (.5, .55, .55)):   # torii gates in perspective
+        w, h = s_ * CW * .55, s_ * CH * .30
+        cx, cy = tx * CW, ty * CH
+        col = "#B11C1C" if s_ > .4 else "#8C1717"
+        for sx in (-1, 1):
+            d.rectangle([cx + sx * w * .8 - w * .07, cy - h, cx + sx * w * .8 + w * .07, cy + h * .35], fill=col, outline="#000000", width=5)
+        d.polygon([(cx - w * 1.15, cy - h * 1.02), (cx + w * 1.15, cy - h * 1.02), (cx + w * 1.0, cy - h * .84), (cx - w * 1.0, cy - h * .84)], fill="#0D0D0D", outline="#000000")
+        d.rectangle([cx - w * .95, cy - h * .72, cx + w * .95, cy - h * .6], fill=col, outline="#000000", width=4)
+    glow(img, vx, .52 * CH, 90, (225, 20, 20), .55, blur=90)
+    d = ImageDraw.Draw(img)
+    for sx in (-1, 1):                                    # stone lanterns
+        lx, ly = vx + sx * .30 * CW, .74 * CH
+        d.rectangle([lx - 16, ly, lx + 16, ly + 130], fill="#2A3B36", outline="#000000", width=4)
+        d.rectangle([lx - 44, ly - 56, lx + 44, ly], fill="#34483F", outline="#000000", width=4)
+        d.rectangle([lx - 22, ly - 36, lx + 22, ly - 8], fill="#E9C46A")
+        d.polygon([(lx - 62, ly - 56), (lx, ly - 104), (lx + 62, ly - 56)], fill="#233630", outline="#000000")
+        glow(img, lx, ly - 22, 50, (190, 150, 60), .8, blur=50)
+        d = ImageDraw.Draw(img)
+    hy = .46 * CH                                          # a small figure between the gates
+    d.polygon([(vx - 13, hy + 100), (vx + 13, hy + 100), (vx + 22, hy + 210), (vx - 22, hy + 210)], fill="#010203")
+    d.ellipse([vx - 12, hy + 70, vx + 12, hy + 100], fill="#010203")
+    eyes = [(vx - 5, hy + 84), (vx + 5, hy + 84)]
+    for ex, ey in eyes:
+        glow(img, ex, ey, 7, (225, 20, 20), 1.0, blur=8)
+    fog(img, .72, .96, .34, seed + 1, color=(140, 175, 160))
+    hatch(img)
+    return img, {"hot": (vx, hy + 80), "eyes": eyes}
+
+
 ARTS = {"school": art_school, "corridor": art_corridor, "bathroom": art_bathroom, "stall": art_stall,
-        "eyes": art_eyes, "girl": art_girl, "forest": art_forest, "mask": art_mask, "street": art_street}
+        "eyes": art_eyes, "girl": art_girl, "forest": art_forest, "mask": art_mask, "street": art_street, "snow": art_snow, "shrine": art_shrine}
 
 
 def make_art(name, seed=1):
