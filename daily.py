@@ -62,7 +62,7 @@ def gemini_models(key):
             if "generateContent" in m.get("supportedGenerationMethods", []) and name.startswith("gemini-") and "flash" in name \
                     and not any(x in name for x in ("image", "tts", "live", "audio", "embedding", "thinking", "robotics", "computer", "learnlm")):
                 ver = [int(x) for x in re.findall(r"\d+", name.split("flash")[0])] or [0]
-                found.append((ver, "lite" not in name, "preview" not in name and "exp" not in name, name))
+                found.append(("preview" not in name and "exp" not in name, ver, "lite" not in name, name))
     except Exception as e:
         print("  (could not list Gemini models:", e, ")")
     found.sort(reverse=True)
@@ -80,9 +80,16 @@ def gemini(prompt, max_tokens=8192, json_mode=True):
             gen = {"maxOutputTokens": max_tokens, "temperature": 0.8}
             if json_mode:
                 gen["responseMimeType"] = "application/json"
-            r = requests.post(f"{GEMINI_BASE}/v1beta/models/{model}:generateContent", timeout=300, json={
-                "contents": [{"role": "user", "parts": [{"text": prompt}]}], "generationConfig": gen},
-                headers={"x-goog-api-key": key, "content-type": "application/json"})
+            try:
+                r = requests.post(f"{GEMINI_BASE}/v1beta/models/{model}:generateContent", timeout=150, json={
+                    "contents": [{"role": "user", "parts": [{"text": prompt}]}], "generationConfig": gen},
+                    headers={"x-goog-api-key": key, "content-type": "application/json"})
+            except requests.RequestException as e:      # timeouts / dropped connections: retry, then try the next model
+                errors.append(f"{model}: {type(e).__name__}")
+                if attempt < 1:
+                    time.sleep(10)
+                    continue
+                break
             if r.status_code == 200:
                 data = r.json()
                 parts = ((data.get("candidates") or [{}])[0].get("content") or {}).get("parts") or []
