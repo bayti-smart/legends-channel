@@ -9,6 +9,7 @@ import base64, hashlib, json, math, multiprocessing as mp, os, random, shutil, s
 from pathlib import Path
 
 import numpy as np
+import requests
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter
 
 import legend_art as la
@@ -18,8 +19,8 @@ W, H, FPS, SR = 1080, 1920, 30, 44100
 CW, CH = la.CW, la.CH
 RED = "#E11414"
 HERE = Path(__file__).resolve().parent
-IMG_STYLE = ("dark gritty horror comic illustration, thick black ink outlines, desaturated teal and green palette "
-             "with red accents, grainy texture, cinematic lighting, vertical 9:16 composition, no text, no watermark")
+IMG_STYLE = ("2D stylized horror comic illustration with thick black ink outlines and flat cel shading, muted teal and green palette with a single red accent, "
+             "grainy paper texture, dark moody lighting, vertical 9:16 composition, NOT a photograph, NOT photorealistic, no text, no watermark")
 _CTX = {}
 _cache = {}
 
@@ -38,13 +39,59 @@ def cover(img, size):
     return img.crop((x, y, x + w, y + h))
 
 
+def _image_cache_path(full_prompt):
+    cdir = HERE / ".image_cache"
+    cdir.mkdir(exist_ok=True)
+    return cdir / (hashlib.sha1(full_prompt.encode()).hexdigest()[:16] + ".png")
+
+
+def _valid_image(path):
+    try:
+        if Path(path).stat().st_size < 8000:
+            return False
+        with Image.open(path) as im:
+            im.verify()
+        return True
+    except Exception:
+        return False
+
+
+def _fetch_pollinations(prompt, out, seed):
+    import urllib.parse
+    base = os.environ.get("POLLINATIONS_BASE") or "https://image.pollinations.ai"
+    ref = os.environ.get("POLLINATIONS_REFERRER") or "legends-channel"
+    headers = {"User-Agent": "legends-channel/1.0", "Referer": "https://" + ref}
+    if os.environ.get("POLLINATIONS_API_KEY"):
+        headers["Authorization"] = "Bearer " + os.environ["POLLINATIONS_API_KEY"]
+    last = "no attempt"
+    for model in ("flux", "turbo"):
+        url = (f"{base}/prompt/" + urllib.parse.quote(prompt[:700]) +
+               f"?width=1024&height=1536&model={model}&nologo=true&private=true&enhance=false&seed={seed}&referrer={urllib.parse.quote(ref)}")
+        for attempt in range(3):
+            try:
+                r = requests.get(url, headers=headers, timeout=150)
+            except requests.RequestException as e:
+                last = f"{model}: {type(e).__name__}"
+                time.sleep(12)
+                continue
+            if r.status_code == 200 and r.headers.get("content-type", "").startswith("image") and len(r.content) > 8000:
+                Path(out).write_bytes(r.content)
+                if _valid_image(out):
+                    return True, f"{model} ok"
+                last = f"{model}: bad image"
+            else:
+                last = f"{model}: HTTP {r.status_code}"
+                wait = r.headers.get("retry-after", "")
+                time.sleep(int(wait) if wait.isdigit() else (25 if r.status_code == 429 else 12))
+    return False, last
+
+
 def gen_image(prompt, out):
-    """OpenAI-compatible image endpoint. env: IMAGE_API_KEY, IMAGE_API_BASE, IMAGE_MODEL."""
-    if os.environ.get("IMAGE_PROVIDER") == "pollinations":      # free, no key (quality/availability not guaranteed)
-        import urllib.parse
-        url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt[:900]) +
-               "?width=1024&height=1536&model=flux&nologo=true&seed=" + str(int(hashlib.sha1(prompt.encode()).hexdigest()[:6], 16)))
-        urllib.request.urlretrieve(url, out)
+    """Pollinations (free; IMAGE_PROVIDER=pollinations) or any OpenAI-compatible endpoint (IMAGE_API_KEY)."""
+    if os.environ.get("IMAGE_PROVIDER") == "pollinations":
+        ok, why = _fetch_pollinations(prompt, out, int(hashlib.sha1(prompt.encode()).hexdigest()[:6], 16))
+        if not ok:
+            raise RuntimeError(why)
         return
     key = os.environ.get("IMAGE_API_KEY")
     if not key:
@@ -58,6 +105,41 @@ def gen_image(prompt, out):
         Path(out).write_bytes(base64.b64decode(item["b64_json"]))
     else:
         urllib.request.urlretrieve(item["url"], out)
+
+
+def ensure_image(prompt, style):
+    """Returns the cached image path for this prompt, generating it if needed (None if it keeps failing)."""
+    full = prompt + ". " + style
+    p = _image_cache_path(full)
+    fail = p.with_suffix(".fail")
+    if p.exists() and _valid_image(p):
+        return p, "cached"
+    if fail.exists():
+        return None, "skipped (failed before)"
+    try:
+        gen_image(full, p)
+        return p, "generated"
+    except Exception as e:
+        p.unlink(missing_ok=True)
+        fail.write_text(str(e)[:200])
+        return None, str(e)[:120]
+
+
+def prefetch_images(scenes, spec):
+    """One image at a time, spaced out (free services reject parallel bursts), before the parallel video render starts."""
+    style = spec.get("image_style", IMG_STYLE)
+    todo = [(i, sc["image_prompt"]) for i, sc in enumerate(scenes) if sc.get("image_prompt") and not sc.get("collage")]
+    ok, report = 0, []
+    for k, (i, prompt) in enumerate(todo):
+        t0 = time.time()
+        p, why = ensure_image(prompt, style)
+        ok += bool(p)
+        report.append(f"{i + 1}:{'OK' if p else 'FAIL'}({why[:40]},{time.time() - t0:.0f}s)")
+        print(f"  image {k + 1}/{len(todo)} scene {i + 1}: {why}", flush=True)
+        if p and why == "generated" and k < len(todo) - 1:
+            time.sleep(float(os.environ.get("IMAGE_GAP_SECONDS") or "6"))
+    print(f"::notice title=Images::{ok}/{len(todo)} generated | " + " ".join(report)[:900])
+    return ok, len(todo)
 
 
 def scene_art(C, si, name=None, sc=None):
@@ -77,19 +159,7 @@ def scene_art(C, si, name=None, sc=None):
                     path = str(p)
                     break
         if not path and C.get("imagegen") and sc.get("image_prompt"):
-            cdir = HERE / ".image_cache"
-            cdir.mkdir(exist_ok=True)
-            full = sc["image_prompt"] + ". " + C["spec"].get("image_style", IMG_STYLE)
-            p = cdir / (hashlib.sha1(full.encode()).hexdigest()[:16] + ".png")
-            if not p.exists():
-                print(f"  generating image for scene {si + 1}…", flush=True)
-                try:
-                    gen_image(full, p)
-                    Image.open(p).verify()
-                except Exception as e:           # fall back to the built-in art for this scene
-                    print(f"  image generation failed ({e}); using built-in art", flush=True)
-                    p.unlink(missing_ok=True)
-                    p = None
+            p, _ = ensure_image(sc["image_prompt"], C["spec"].get("image_style", IMG_STYLE))
             path = str(p) if p else None
     if path:
         img = cover(Image.open(path).convert("RGB"), (CW, CH))
@@ -517,6 +587,8 @@ def run(a, spec):
     _CTX.update(scenes=scenes, spec=spec, infos=infos, font=font, work=work, bounds=bounds,
                 images_dir=a.images, imagegen=a.imagegen)
     n = len(scenes)
+    if a.imagegen and not a.images:
+        prefetch_images(scenes, spec)
     todo = [i for i in range(n) if not (work / f"seg{i:02d}.mp4").exists()]
     print(f"› video: {n - len(todo)}/{n} scenes cached, rendering {len(todo)} ({bounds[-1] / FPS:.1f}s total)", flush=True)
     t0 = time.time()
