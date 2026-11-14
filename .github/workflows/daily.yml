@@ -41,6 +41,8 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           IMAGE_API_KEY: ${{ secrets.IMAGE_API_KEY }}
           IMAGE_PROVIDER: ${{ vars.IMAGE_PROVIDER }}
+          POLLINATIONS_API_KEY: ${{ secrets.POLLINATIONS_API_KEY }}
+          POLLINATIONS_REFERRER: ${{ vars.POLLINATIONS_REFERRER }}
           YT_PRIVACY: ${{ vars.YT_PRIVACY || 'private' }}
         run: |
           ARGS=""
