@@ -56,7 +56,7 @@ def _valid_image(path):
         return False
 
 
-def _fetch_pollinations(prompt, out, seed):
+def _fetch_pollinations(prompt, out, seed, w=1024, h=1536):
     import urllib.parse
     base = os.environ.get("POLLINATIONS_BASE") or "https://image.pollinations.ai"
     ref = os.environ.get("POLLINATIONS_REFERRER") or "legends-channel"
@@ -66,7 +66,7 @@ def _fetch_pollinations(prompt, out, seed):
     last = "no attempt"
     for model in ("flux", "turbo"):
         url = (f"{base}/prompt/" + urllib.parse.quote(prompt[:700]) +
-               f"?width=1024&height=1536&model={model}&nologo=true&private=true&enhance=false&seed={seed}&referrer={urllib.parse.quote(ref)}")
+               f"?width={w}&height={h}&model={model}&nologo=true&private=true&enhance=false&seed={seed}&referrer={urllib.parse.quote(ref)}")
         for attempt in range(3):
             try:
                 r = requests.get(url, headers=headers, timeout=150)
