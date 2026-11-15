@@ -15,6 +15,9 @@ SEC_AMB = {"O": "O0", "0": "O0", "o": "o0", "l": "lI1", "I": "lI1", "1": "lI1", 
 
 
 def variants(raw, head_len, amb):
+    if os.environ.get("EXACT"):
+        yield 0, raw
+        return
     head, tail = raw[:head_len], raw[head_len:]
     opts = [amb.get(c, c) for c in tail]
     pos = [i for i, o in enumerate(opts) if len(o) > 1]
