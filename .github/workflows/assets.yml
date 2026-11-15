@@ -1,0 +1,25 @@
+name: Make channel pictures
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install requests numpy pillow
+      - run: python gen_assets.py
+        env:
+          IMAGE_PROVIDER: pollinations
+          POLLINATIONS_API_KEY: ${{ secrets.POLLINATIONS_API_KEY }}
+          POLLINATIONS_REFERRER: ${{ vars.POLLINATIONS_REFERRER }}
+      - name: Publish the pictures (private pre-release)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="assets-$(date +%Y%m%d-%H%M%S)"
+          gh release create "$TAG" assets_out/*.png --title "$TAG" --notes "channel pictures" --prerelease
