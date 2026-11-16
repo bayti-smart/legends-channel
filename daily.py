@@ -390,6 +390,11 @@ def run(a):
     render(script_path, video_path)
     record = {"date": today, "topic": topic["topic"], "title": title, "file": video_path.name, "youtube_id": None}
     if a.dry_run:
+        if os.environ.get("SEND_PREVIEW") == "1":
+            try:
+                pub.telegram_send_video(video_path, "معاينة (لم تُنشر في أي مكان)\n" + title)
+            except Exception as e:
+                print("  (could not send the preview to Telegram:", e, ")")
         print("✔ dry run finished:", video_path)
         return
     yt_id = None
@@ -400,6 +405,13 @@ def run(a):
                                    ai_disclosure=os.environ.get("YT_AI_DISCLOSURE", "true").lower() != "false")
         record["youtube_id"] = yt_id
         print("  https://youtu.be/" + yt_id)
+        try:
+            actual = pub.youtube_status(yt_id)
+        except Exception:
+            actual = None
+        record["privacy"] = actual
+        if actual and actual != privacy:
+            pub.telegram_message(f"⚠️ طلبتُ أن يكون الفيديو {privacy} لكن يوتيوب جعله {actual}. غالباً مشروع جوجل مقفل على الخاص حتى التدقيق.")
     if not a.no_telegram:
         note = f"TikTok caption:\n{tiktok_caption}\n"
         if yt_id:
