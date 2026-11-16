@@ -44,6 +44,7 @@ jobs:
           POLLINATIONS_API_KEY: ${{ secrets.POLLINATIONS_API_KEY }}
           POLLINATIONS_REFERRER: ${{ vars.POLLINATIONS_REFERRER }}
           YT_PRIVACY: ${{ vars.YT_PRIVACY || 'private' }}
+          SEND_PREVIEW: ${{ github.event.inputs.dry_run == 'true' && '1' || '' }}
         run: |
           ARGS=""
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
