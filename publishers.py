@@ -108,6 +108,16 @@ def youtube_stats(ids):
     return out
 
 
+def youtube_status(vid):
+    """The privacy YouTube actually gave the video (it can force 'private' if the API project is locked)."""
+    cid, secret, refresh = (os.environ.get(k) for k in ("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN"))
+    token = yt_access_token(cid, secret, refresh)
+    r = requests.get(YT_UPLOAD_BASE + "/youtube/v3/videos", params={"part": "status", "id": vid},
+                     headers={"Authorization": "Bearer " + token}, timeout=60)
+    items = r.json().get("items") or [] if r.status_code == 200 else []
+    return (items[0].get("status") or {}).get("privacyStatus") if items else None
+
+
 def _yt_resume_offset(session, size):
     r = requests.put(session, headers={"Content-Length": "0", "Content-Range": f"bytes */{size}"}, allow_redirects=False, timeout=60)
     if r.status_code == 308:
