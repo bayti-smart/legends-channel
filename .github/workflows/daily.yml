@@ -1,7 +1,8 @@
 name: Daily legend
 on:
-  # schedule:                   # PAUSED until YouTube is linked. To switch on, remove the two leading '#' below.
-  #   - cron: "0 21 * * *"      # every day 21:00 UTC (GitHub may delay it by some minutes) - change as you like
+  schedule:                     # two videos a day (GitHub may delay a run by some minutes). Times are UTC.
+    - cron: "0 15 * * *"
+    - cron: "0 23 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -65,7 +66,7 @@ jobs:
         run: |
           git config user.name "legend-bot"
           git config user.email "legend-bot@users.noreply.github.com"
-          git add topics.json published.json
+          git add topics.json published.json playbook.json
           git diff --cached --quiet || (git commit -m "daily state" && git push)
       - uses: actions/upload-artifact@v4
         if: always()
