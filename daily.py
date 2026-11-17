@@ -24,6 +24,7 @@ import publishers as pub        # noqa: E402
 
 legend.bind(mr)
 TOPICS, PUBLISHED, OUT = HERE / "topics.json", HERE / "published.json", HERE / "out"
+PLAYBOOK = HERE / "playbook.json"
 API = os.environ.get("ANTHROPIC_API_BASE", "https://api.anthropic.com")
 MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5-5")
 SEARCH_TOOL = os.environ.get("WEB_SEARCH_TOOL", "web_search_20250305")
@@ -31,6 +32,20 @@ VALID_ART = set(la.ARTS) | {"corridor_figure", "bathroom_empty", "street_figure"
 VALID_SFX = {"knock", "sting", "whisper", "creak", "boom"}
 ART_CYCLE = ["school", "corridor", "bathroom", "street", "forest", "mask", "stall", "eyes"]
 BASE_TAGS = ["#Shorts", "#UrbanLegends", "#Folklore", "#Horror"]
+HOOK_STYLES = {
+    "question": "open with one direct, unsettling question to the viewer",
+    "warning": "open with a second-person warning that starts with 'Never' or 'Do not'",
+    "claim": "open with one shocking, specific claim in a single sentence",
+    "mystery": "open with a strange unexplained detail that demands an answer",
+}
+LENGTHS = {"short": 9, "medium": 11, "long": 13}   # number of scenes (about 45 s / 60 s / 75 s)
+
+
+def weighted_choice(options, weights):
+    """Pick a key; weights come from the weekly playbook (with a floor so we keep exploring)."""
+    keys = list(options)
+    w = [max(0.05, float((weights or {}).get(k, 1.0 / len(keys)))) for k in keys]
+    return random.SystemRandom().choices(keys, weights=w, k=1)[0]
 
 
 class Rejected(Exception):
@@ -212,6 +227,8 @@ EXTRA = """
 Also add a top-level key "meta": {{"title": "catchy YouTube title, max 80 chars, no emojis", "description": "2-3 sentences + a one-line question for comments",
 "tags": ["8-12 plain tags"], "tiktok_caption": "caption under 150 chars with 3-4 hashtags"}}.
 Topic notes: {hint}
+Hook style for THIS video: {style}.
+Learned playbook from our own weekly results (follow it unless it contradicts the rules above): {guidance}
 Performance of our earlier videos (learn which hooks, topics and structures got more views and lean into what works - never copy an old video): {perf}
 Vary the structure from episode to episode (different hook type, different scene order, different closing line)."""
 
@@ -277,8 +294,9 @@ def sanitize(spec, narrator):
     return spec
 
 
-def generate_script(topic, scenes, narrator, sources_text="", perf=""):
-    prompt = (mr.GEN_LEGEND_PROMPT.format(topic=f"{topic['topic']}", n=scenes) + EXTRA.format(hint=topic.get("hint", ""), perf=perf or "no data yet")
+def generate_script(topic, scenes, narrator, sources_text="", perf="", style="question", guidance=""):
+    prompt = (mr.GEN_LEGEND_PROMPT.format(topic=f"{topic['topic']}", n=scenes)
+              + EXTRA.format(hint=topic.get("hint", ""), perf=perf or "no data yet", style=HOOK_STYLES[style], guidance=guidance or "none yet")
               + ("\n\nSOURCE MATERIAL - base every factual claim on this text (or on widely known common knowledge). "
                  "Do not invent dates, names, places or numbers that are not here:\n" + sources_text if sources_text else ""))
     return sanitize(extract_json(llm(prompt)), narrator)
@@ -321,7 +339,7 @@ def refresh_stats(published):
         return ""
     for p in published:
         if p.get("youtube_id") in st:
-            p["views"], p["likes"] = st[p["youtube_id"]]["views"], st[p["youtube_id"]]["likes"]
+            p["views"], p["likes"], p["comments"] = st[p["youtube_id"]]["views"], st[p["youtube_id"]]["likes"], st[p["youtube_id"]].get("comments", 0)
     rows = sorted((p for p in published if p.get("views") is not None), key=lambda p: -p["views"])
     if not rows or rows[0]["views"] == 0:
         return ""
@@ -345,8 +363,13 @@ def run(a):
     OUT.mkdir(exist_ok=True)
     topics, published = load(TOPICS, {"queue": []}), load(PUBLISHED, [])
     today = datetime.date.today().isoformat()
+    playbook = load(PLAYBOOK, {})
     voices = [v.strip() for v in os.environ.get("DAILY_VOICES", "am_onyx,bm_george").split(",") if v.strip()]
-    narrator = voices[datetime.date.today().toordinal() % len(voices)]
+    narrator = weighted_choice(voices, playbook.get("voice_weights"))
+    hook_style = weighted_choice(HOOK_STYLES, playbook.get("hook_weights"))
+    length = weighted_choice(LENGTHS, playbook.get("length_weights"))
+    n_scenes = a.scenes if a.scenes else LENGTHS[length]
+    print(f"› experiment: voice={narrator} hook={hook_style} length={length}({n_scenes} scenes)")
     spec = None
     sources, issues = [], []
     perf = refresh_stats(published)
@@ -368,7 +391,7 @@ def run(a):
                 sources_text, sources = gather_sources(topic["topic"])
                 if not sources_text.strip():
                     raise Rejected("no reliable source text found for this topic")
-                spec = generate_script(topic, a.scenes, narrator, sources_text, perf)
+                spec = generate_script(topic, n_scenes, narrator, sources_text, perf, hook_style, playbook.get("guidance", ""))
                 spec, issues = factcheck(spec, narrator, sources_text)
                 break
             except Rejected as e:
@@ -388,7 +411,14 @@ def run(a):
     save(script_path, spec)
     print("› rendering…")
     render(script_path, video_path)
-    record = {"date": today, "topic": topic["topic"], "title": title, "file": video_path.name, "youtube_id": None}
+    try:
+        dur = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(video_path)]).strip())
+    except Exception:
+        dur = None
+    record = {"date": today, "published_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes"), "topic": topic["topic"],
+              "title": title, "file": video_path.name, "youtube_id": None, "voice": narrator, "hook_style": hook_style, "length": length,
+              "scenes": len(spec["scenes"]), "duration_s": round(dur, 1) if dur else None, "hook": spec["scenes"][0]["text"],
+              "arts": [s.get("art") for s in spec["scenes"] if s.get("art")]}
     if a.dry_run:
         if os.environ.get("SEND_PREVIEW") == "1":
             try:
@@ -430,7 +460,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="generate and render, but do not upload or send")
     ap.add_argument("--topic", help="force a specific legend instead of the queue")
-    ap.add_argument("--scenes", type=int, default=11)
+    ap.add_argument("--scenes", type=int, default=0, help="force a scene count (default: chosen by the weekly playbook)")
     ap.add_argument("--script", help="use an existing script JSON (skips the AI steps; for tests)")
     ap.add_argument("--no-youtube", action="store_true")
     ap.add_argument("--no-telegram", action="store_true")
