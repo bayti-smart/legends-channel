@@ -12,5 +12,35 @@
     "title": "Kuchisake-onna: the woman in the mask",
     "file": "legend_kuchisake.mp4",
     "youtube_id": null
+  },
+  {
+    "date": "2026-11-17",
+    "published_at": "2026-11-17T19:34+00:00",
+    "topic": "Yuki-onna (the snow woman)",
+    "title": "The Chilling Legend of Yuki-Onna, the Snow Woman #Shorts",
+    "file": "2026-11-17-yuki-onna-the-snow-woman.mp4",
+    "youtube_id": "WOvnjEzobJI",
+    "voice": "bm_george",
+    "hook_style": "warning",
+    "length": "long",
+    "scenes": 13,
+    "duration_s": 68.8,
+    "hook": "Do not wander alone into a blinding mountain blizzard.",
+    "arts": [
+      "snow",
+      "forest",
+      "snow",
+      "forest",
+      "shrine",
+      "snow",
+      "forest",
+      "snow",
+      "forest",
+      "snow",
+      "eyes",
+      "shrine",
+      "snow"
+    ],
+    "privacy": "public"
   }
 ]
