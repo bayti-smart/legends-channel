@@ -104,7 +104,7 @@ def youtube_stats(ids):
             raise PublishError(f"YouTube stats failed ({r.status_code}): {r.text[:200]}")
         for it in r.json().get("items", []):
             s = it.get("statistics", {})
-            out[it["id"]] = {"views": int(s.get("viewCount", 0)), "likes": int(s.get("likeCount", 0))}
+            out[it["id"]] = {"views": int(s.get("viewCount", 0)), "likes": int(s.get("likeCount", 0)), "comments": int(s.get("commentCount", 0))}
     return out
 
 
