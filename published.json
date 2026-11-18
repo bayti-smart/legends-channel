@@ -42,7 +42,7 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 531,
+    "views": 539,
     "likes": 11,
     "comments": 0
   },
@@ -73,6 +73,36 @@
       "street_figure",
       "street_figure",
       "shrine"
+    ],
+    "privacy": "public",
+    "views": 29,
+    "likes": 3,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-18",
+    "published_at": "2026-11-18T22:26+00:00",
+    "topic": "Kappa",
+    "title": "The Legend of the Japanese River Water-Spirit #Shorts",
+    "file": "2026-11-18-kappa.mp4",
+    "youtube_id": "cSV-aktzRAA",
+    "voice": "am_onyx",
+    "hook_style": "question",
+    "length": "medium",
+    "scenes": 11,
+    "duration_s": 71.3,
+    "hook": "Have you ever felt a cold presence watching you from the dark river water?",
+    "arts": [
+      "shrine",
+      "forest",
+      "street",
+      "street_figure",
+      "shrine",
+      "forest",
+      "snow",
+      "shrine",
+      "street",
+      "eyes"
     ],
     "privacy": "public"
   }
