@@ -41,6 +41,39 @@
       "shrine",
       "snow"
     ],
+    "privacy": "public",
+    "views": 531,
+    "likes": 11,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-18",
+    "published_at": "2026-11-18T04:23+00:00",
+    "topic": "Noppera-bo (the faceless ghost)",
+    "title": "The Terrifying Legend of Noppera-bo, Japan's Faceless Ghost #Shorts",
+    "file": "2026-11-18-noppera-bo-the-faceless-ghost.mp4",
+    "youtube_id": "UbKYJnPvgj4",
+    "voice": "bm_george",
+    "hook_style": "claim",
+    "length": "long",
+    "scenes": 13,
+    "duration_s": 69.5,
+    "hook": "Never offer comfort to a stranger weeping alone in the dark.",
+    "arts": [
+      "street_figure",
+      "street",
+      "street_figure",
+      "forest",
+      "street_figure",
+      "street_figure",
+      "street",
+      "street",
+      "street_figure",
+      "street_figure",
+      "street_figure",
+      "street_figure",
+      "shrine"
+    ],
     "privacy": "public"
   }
 ]
