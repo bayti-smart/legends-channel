@@ -22,6 +22,7 @@ HERE = Path(__file__).resolve().parent
 SKIP_DIRS = {"__pycache__", ".work", "out", "models", ".tts_cache", ".image_cache", "fonts", ".git"}
 SKIP_FILES = {"reel.yml"}                 # the old manual stickman workflow
 SKIP_SUFFIX = {".mp4", ".zip", ".pyc", ".wav"}
+STATE_FILES = {"published.json", "topics.json", "playbook.json"}   # live state written by the daily runs: never overwrite if it already exists
 
 
 class GH:
@@ -93,6 +94,8 @@ def main():
         url = f"/repos/{login}/{a.repo}/contents/{quote(rel)}"
         cur = gh.call("GET", url, ok=(200, 404), params={"ref": branch})
         body = {"message": f"add {rel}", "content": base64.b64encode(path.read_bytes()).decode(), "branch": branch}
+        if cur.status_code == 200 and rel in STATE_FILES:
+            continue
         if cur.status_code == 200:
             body["sha"] = cur.json()["sha"]
         gh.call("PUT", url, json=body)
