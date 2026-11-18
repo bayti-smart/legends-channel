@@ -1,7 +1,7 @@
 name: Weekly review
 on:
   schedule:
-    - cron: "0 6 * * 1"          # every Monday 06:00 UTC
+    - cron: "23 6 * * 1"          # every Monday 06:00 UTC
   workflow_dispatch:
 permissions:
   contents: write
