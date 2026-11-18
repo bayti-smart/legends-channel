@@ -1,8 +1,8 @@
 name: Daily legend
 on:
   schedule:                     # two videos a day (GitHub may delay a run by some minutes). Times are UTC.
-    - cron: "0 15 * * *"
-    - cron: "0 23 * * *"
+    - cron: "17 14 * * *"
+    - cron: "43 21 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
