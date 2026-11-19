@@ -42,7 +42,7 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 539,
+    "views": 545,
     "likes": 11,
     "comments": 0
   },
@@ -75,7 +75,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 29,
+    "views": 36,
     "likes": 3,
     "comments": 0
   },
@@ -103,6 +103,39 @@
       "shrine",
       "street",
       "eyes"
+    ],
+    "privacy": "public",
+    "views": 41,
+    "likes": 4,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-19",
+    "published_at": "2026-11-19T22:28+00:00",
+    "topic": "Tsukumogami",
+    "title": "When Everyday Objects Come Alive | The Tsukumogami Legend #Shorts",
+    "file": "2026-11-19-tsukumogami.mp4",
+    "youtube_id": "n9k75cD_Rqk",
+    "voice": "bm_george",
+    "hook_style": "question",
+    "length": "long",
+    "scenes": 13,
+    "duration_s": 98.2,
+    "hook": "How old is that antique resting quietly inside your bedroom right now?",
+    "arts": [
+      "eyes",
+      "shrine",
+      "street_figure",
+      "street",
+      "forest",
+      "corridor",
+      "eyes",
+      "shrine",
+      "street_figure",
+      "corridor_figure",
+      "eyes",
+      "corridor",
+      "shrine"
     ],
     "privacy": "public"
   }
