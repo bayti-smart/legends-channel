@@ -42,7 +42,7 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 545,
+    "views": 547,
     "likes": 11,
     "comments": 0
   },
@@ -75,7 +75,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 36,
+    "views": 38,
     "likes": 3,
     "comments": 0
   },
@@ -105,8 +105,8 @@
       "eyes"
     ],
     "privacy": "public",
-    "views": 41,
-    "likes": 4,
+    "views": 43,
+    "likes": 5,
     "comments": 0
   },
   {
@@ -135,6 +135,37 @@
       "corridor_figure",
       "eyes",
       "corridor",
+      "shrine"
+    ],
+    "privacy": "public",
+    "views": 60,
+    "likes": 3,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-20",
+    "published_at": "2026-11-20T03:02+00:00",
+    "topic": "Jorogumo (the spider woman)",
+    "title": "The Terrifying Legend of Japan's Spider Woman | Jorogumo #Shorts",
+    "file": "2026-11-20-jorogumo-the-spider-woman.mp4",
+    "youtube_id": "hSgvCNj1dfk",
+    "voice": "am_onyx",
+    "hook_style": "mystery",
+    "length": "medium",
+    "scenes": 11,
+    "duration_s": 75.1,
+    "hook": "You wake beside a mist-covered waterfall to find a single silk thread tied to your ankle.",
+    "arts": [
+      "forest",
+      "forest",
+      "shrine",
+      "forest",
+      "forest",
+      "forest",
+      "eyes",
+      "street_figure",
+      "eyes",
+      "forest",
       "shrine"
     ],
     "privacy": "public"
