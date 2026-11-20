@@ -42,7 +42,7 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 547,
+    "views": 534,
     "likes": 11,
     "comments": 0
   },
@@ -105,7 +105,7 @@
       "eyes"
     ],
     "privacy": "public",
-    "views": 43,
+    "views": 63,
     "likes": 5,
     "comments": 0
   },
@@ -138,8 +138,8 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 60,
-    "likes": 3,
+    "views": 91,
+    "likes": 2,
     "comments": 0
   },
   {
@@ -166,6 +166,39 @@
       "street_figure",
       "eyes",
       "forest",
+      "shrine"
+    ],
+    "privacy": "public",
+    "views": 103,
+    "likes": 5,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-20",
+    "published_at": "2026-11-20T22:09+00:00",
+    "topic": "Rokurokubi (the long-necked woman)",
+    "title": "The Terrifying Japanese Legend of Rokurokubi | Long-Necked Woman #Shorts #Shorts",
+    "file": "2026-11-20-rokurokubi-the-long-necked-woman.mp4",
+    "youtube_id": "1_-muj-UgiQ",
+    "voice": "am_onyx",
+    "hook_style": "question",
+    "length": "long",
+    "scenes": 13,
+    "duration_s": 77.9,
+    "hook": "Have you ever felt a cold shadow creeping across your ceiling while you sleep?",
+    "arts": [
+      "eyes",
+      "street",
+      "street_figure",
+      "shrine",
+      "eyes",
+      "corridor_figure",
+      "forest",
+      "snow",
+      "corridor",
+      "eyes",
+      "shrine",
+      "street",
       "shrine"
     ],
     "privacy": "public"
