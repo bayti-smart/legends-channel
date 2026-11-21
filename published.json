@@ -42,8 +42,8 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 531,
-    "likes": 11,
+    "views": 538,
+    "likes": 13,
     "comments": 0
   },
   {
@@ -75,8 +75,8 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 38,
-    "likes": 3,
+    "views": 47,
+    "likes": 5,
     "comments": 0
   },
   {
@@ -105,8 +105,8 @@
       "eyes"
     ],
     "privacy": "public",
-    "views": 64,
-    "likes": 5,
+    "views": 70,
+    "likes": 7,
     "comments": 0
   },
   {
@@ -138,8 +138,8 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 91,
-    "likes": 2,
+    "views": 114,
+    "likes": 4,
     "comments": 0
   },
   {
@@ -169,8 +169,8 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 106,
-    "likes": 6,
+    "views": 129,
+    "likes": 8,
     "comments": 0
   },
   {
@@ -202,9 +202,9 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 519,
-    "likes": 20,
-    "comments": 0
+    "views": 845,
+    "likes": 27,
+    "comments": 2
   },
   {
     "date": "2026-11-21",
@@ -231,6 +231,35 @@
       "eyes",
       "forest",
       "shrine"
+    ],
+    "privacy": "public",
+    "views": 359,
+    "likes": 15,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-21",
+    "published_at": "2026-11-21T20:51+00:00",
+    "topic": "Kokkuri-san",
+    "title": "The Terrifying Legend of Kokkuri-san | Japan's Spirit Board #Shorts",
+    "file": "2026-11-21-kokkuri-san.mp4",
+    "youtube_id": "4xRU4lcroC4",
+    "voice": "am_onyx",
+    "hook_style": "question",
+    "length": "short",
+    "scenes": 9,
+    "duration_s": 57.5,
+    "hook": "Have you ever asked a question you were not prepared to hear answered?",
+    "arts": [
+      "school",
+      "corridor",
+      "bathroom",
+      "street",
+      "forest",
+      "eyes",
+      "corridor",
+      "street",
+      "silhouette"
     ],
     "privacy": "public"
   }
