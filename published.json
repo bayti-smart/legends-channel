@@ -42,7 +42,7 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 534,
+    "views": 531,
     "likes": 11,
     "comments": 0
   },
@@ -105,7 +105,7 @@
       "eyes"
     ],
     "privacy": "public",
-    "views": 63,
+    "views": 64,
     "likes": 5,
     "comments": 0
   },
@@ -169,8 +169,8 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 103,
-    "likes": 5,
+    "views": 106,
+    "likes": 6,
     "comments": 0
   },
   {
@@ -199,6 +199,37 @@
       "eyes",
       "shrine",
       "street",
+      "shrine"
+    ],
+    "privacy": "public",
+    "views": 519,
+    "likes": 20,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-21",
+    "published_at": "2026-11-21T03:11+00:00",
+    "topic": "Gashadokuro (the giant skeleton)",
+    "title": "The Terrifying Japanese Legend of Gashadokuro | Giant Skeleton Yokai #Shorts #Shorts",
+    "file": "2026-11-21-gashadokuro-the-giant-skeleton.mp4",
+    "youtube_id": "pKf4T7cbflI",
+    "voice": "bm_george",
+    "hook_style": "claim",
+    "length": "medium",
+    "scenes": 11,
+    "duration_s": 72.7,
+    "hook": "If you hear teeth rattling in the dark woods late at night, turn back immediately.",
+    "arts": [
+      "forest",
+      "forest",
+      "forest",
+      "shrine",
+      "street",
+      "street_figure",
+      "eyes",
+      "shrine",
+      "eyes",
+      "forest",
       "shrine"
     ],
     "privacy": "public"
