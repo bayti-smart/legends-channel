@@ -75,7 +75,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 47,
+    "views": 44,
     "likes": 5,
     "comments": 0
   },
@@ -105,7 +105,7 @@
       "eyes"
     ],
     "privacy": "public",
-    "views": 70,
+    "views": 66,
     "likes": 7,
     "comments": 0
   },
@@ -138,7 +138,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 115,
+    "views": 111,
     "likes": 4,
     "comments": 0
   },
@@ -169,7 +169,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 129,
+    "views": 135,
     "likes": 8,
     "comments": 0
   },
@@ -202,7 +202,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 878,
+    "views": 894,
     "likes": 27,
     "comments": 2
   },
@@ -233,7 +233,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 370,
+    "views": 398,
     "likes": 16,
     "comments": 0
   },
@@ -262,8 +262,8 @@
       "silhouette"
     ],
     "privacy": "public",
-    "views": 128,
-    "likes": 3,
+    "views": 153,
+    "likes": 4,
     "comments": 0
   },
   {
@@ -293,6 +293,35 @@
       "street_figure",
       "street",
       "street"
+    ],
+    "privacy": "public",
+    "views": 68,
+    "likes": 2,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-22",
+    "published_at": "2026-11-22T21:04+00:00",
+    "topic": "The Red Room (Akai Heya)",
+    "title": "The Terrifying Japanese Internet Legend of The Red Room #Shorts",
+    "file": "2026-11-22-the-red-room-akai-heya.mp4",
+    "youtube_id": "RW0JaDf_11k",
+    "voice": "bm_george",
+    "hook_style": "mystery",
+    "length": "short",
+    "scenes": 9,
+    "duration_s": 52.8,
+    "hook": "A crimson pop-up appears on your screen, asking a single chilling question.",
+    "arts": [
+      "corridor",
+      "eyes",
+      "corridor_figure",
+      "corridor",
+      "corridor",
+      "eyes",
+      "corridor_figure",
+      "corridor_figure",
+      "corridor"
     ],
     "privacy": "public"
   }
