@@ -42,7 +42,7 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 538,
+    "views": 539,
     "likes": 13,
     "comments": 0
   },
@@ -138,7 +138,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 114,
+    "views": 115,
     "likes": 4,
     "comments": 0
   },
@@ -202,7 +202,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 845,
+    "views": 878,
     "likes": 27,
     "comments": 2
   },
@@ -233,8 +233,8 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 359,
-    "likes": 15,
+    "views": 370,
+    "likes": 16,
     "comments": 0
   },
   {
@@ -260,6 +260,39 @@
       "corridor",
       "street",
       "silhouette"
+    ],
+    "privacy": "public",
+    "views": 128,
+    "likes": 3,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-22",
+    "published_at": "2026-11-22T02:07+00:00",
+    "topic": "Kisaragi Station",
+    "title": "The Phantom Station That Does Not Exist | Kisaragi Station #Shorts",
+    "file": "2026-11-22-kisaragi-station.mp4",
+    "youtube_id": "8jJD1krylLU",
+    "voice": "am_onyx",
+    "hook_style": "warning",
+    "length": "long",
+    "scenes": 13,
+    "duration_s": 78.0,
+    "hook": "Do not stay on the train when the tracks lead into the unknown.",
+    "arts": [
+      "street_figure",
+      "street",
+      "street_figure",
+      "street",
+      "street",
+      "street_figure",
+      "forest",
+      "forest",
+      "eyes",
+      "forest",
+      "street_figure",
+      "street",
+      "street"
     ],
     "privacy": "public"
   }
