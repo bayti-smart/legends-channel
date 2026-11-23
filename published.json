@@ -42,7 +42,7 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 539,
+    "views": 540,
     "likes": 13,
     "comments": 0
   },
@@ -75,7 +75,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 44,
+    "views": 45,
     "likes": 5,
     "comments": 0
   },
@@ -105,7 +105,7 @@
       "eyes"
     ],
     "privacy": "public",
-    "views": 66,
+    "views": 67,
     "likes": 7,
     "comments": 0
   },
@@ -138,7 +138,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 111,
+    "views": 109,
     "likes": 4,
     "comments": 0
   },
@@ -169,7 +169,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 135,
+    "views": 136,
     "likes": 8,
     "comments": 0
   },
@@ -202,7 +202,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 894,
+    "views": 898,
     "likes": 27,
     "comments": 2
   },
@@ -233,8 +233,8 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 398,
-    "likes": 16,
+    "views": 402,
+    "likes": 17,
     "comments": 0
   },
   {
@@ -262,8 +262,8 @@
       "silhouette"
     ],
     "privacy": "public",
-    "views": 153,
-    "likes": 4,
+    "views": 167,
+    "likes": 6,
     "comments": 0
   },
   {
@@ -295,8 +295,8 @@
       "street"
     ],
     "privacy": "public",
-    "views": 68,
-    "likes": 2,
+    "views": 75,
+    "likes": 3,
     "comments": 0
   },
   {
@@ -322,6 +322,35 @@
       "corridor_figure",
       "corridor_figure",
       "corridor"
+    ],
+    "privacy": "public",
+    "views": 326,
+    "likes": 10,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-23",
+    "published_at": "2026-11-23T02:17+00:00",
+    "topic": "Hitori Kakurenbo (playing hide-and-seek alone)",
+    "title": "The Terrifying Legend of Hitori Kakurenbo | One-Man Hide and Seek #Shorts #Shorts",
+    "file": "2026-11-23-hitori-kakurenbo-playing-hide-and-seek-a.mp4",
+    "youtube_id": "6lfSwOmBvtg",
+    "voice": "bm_george",
+    "hook_style": "claim",
+    "length": "short",
+    "scenes": 9,
+    "duration_s": 51.5,
+    "hook": "Some say you should never play hide-and-seek alone in the quiet hours of the night.",
+    "arts": [
+      "corridor",
+      "bathroom_empty",
+      "bathroom",
+      "corridor_figure",
+      "eyes",
+      "corridor",
+      "corridor_figure",
+      "eyes",
+      "shrine"
     ],
     "privacy": "public"
   }
