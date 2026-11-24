@@ -42,7 +42,7 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 544,
+    "views": 551,
     "likes": 13,
     "comments": 0
   },
@@ -75,7 +75,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 48,
+    "views": 51,
     "likes": 5,
     "comments": 0
   },
@@ -105,7 +105,7 @@
       "eyes"
     ],
     "privacy": "public",
-    "views": 69,
+    "views": 72,
     "likes": 7,
     "comments": 0
   },
@@ -138,7 +138,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 110,
+    "views": 112,
     "likes": 4,
     "comments": 0
   },
@@ -169,7 +169,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 141,
+    "views": 146,
     "likes": 8,
     "comments": 0
   },
@@ -202,7 +202,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 897,
+    "views": 899,
     "likes": 27,
     "comments": 2
   },
@@ -233,7 +233,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 403,
+    "views": 404,
     "likes": 17,
     "comments": 0
   },
@@ -262,7 +262,7 @@
       "silhouette"
     ],
     "privacy": "public",
-    "views": 185,
+    "views": 191,
     "likes": 7,
     "comments": 0
   },
@@ -295,7 +295,7 @@
       "street"
     ],
     "privacy": "public",
-    "views": 84,
+    "views": 88,
     "likes": 3,
     "comments": 0
   },
@@ -324,8 +324,8 @@
       "corridor"
     ],
     "privacy": "public",
-    "views": 419,
-    "likes": 12,
+    "views": 442,
+    "likes": 13,
     "comments": 0
   },
   {
@@ -353,8 +353,8 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 1125,
-    "likes": 19,
+    "views": 1269,
+    "likes": 20,
     "comments": 0
   },
   {
@@ -384,8 +384,8 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 92,
-    "likes": 0,
+    "views": 157,
+    "likes": 3,
     "comments": 0
   },
   {
@@ -410,6 +410,35 @@
       "shrine",
       "eyes",
       "street",
+      "forest"
+    ],
+    "privacy": "public",
+    "views": 23,
+    "likes": 2,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-24",
+    "published_at": "2026-11-24T23:51+00:00",
+    "topic": "Kamaitachi",
+    "title": "The Terrifying Japanese Legend of Kamaitachi | Wind Sickle Yokai #Shorts",
+    "file": "2026-11-24-kamaitachi.mp4",
+    "youtube_id": "zBYudMNyVJg",
+    "voice": "bm_george",
+    "hook_style": "mystery",
+    "length": "short",
+    "scenes": 9,
+    "duration_s": 64.2,
+    "hook": "You trip along the mountain trail, unaware your thick coat was just sliced clean open.",
+    "arts": [
+      "forest",
+      "forest",
+      "shrine",
+      "eyes",
+      "snow",
+      "street_figure",
+      "eyes",
+      "shrine",
       "forest"
     ],
     "privacy": "public"
