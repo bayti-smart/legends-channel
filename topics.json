@@ -46,7 +46,48 @@
     },
     {
       "topic": "Aka Manto (the red cloak in the bathroom)",
-      "hint": "Japanese school bathroom legend; a voice asks 'red paper or blue paper?'; several documented variants."
+      "hint": "Japanese school bathroom legend; a voice asks 'red paper or blue paper?'; several documented variants.",
+      "status": "rejected"
+    },
+    {
+      "topic": "Kunekune",
+      "hint": "A modern Japanese internet legend documented by digital folklorists describing an undulating, ambiguous white figure spotted in rural rice fields that drives anyone who stares too closely into irrational panic."
+    },
+    {
+      "topic": "Hachishaku-sama (Eight Feet Tall)",
+      "hint": "A well-cataloged Japanese urban legend originating on 2channel about an unnaturally tall woman in a white summer hat who stalks travelers while making a rhythmic 'po-po-po' vocalization."
+    },
+    {
+      "topic": "Kamaitachi",
+      "hint": "A classical yōkai trio documented in Edo-period compendiums like Toriyama Sekien's *Gazu Hyakki Yagyō*, depicting wind weasels that harmlessly slice unsuspecting mountain travelers."
+    },
+    {
+      "topic": "Baku",
+      "hint": "A chimerical spirit with roots in Chinese and Japanese folklore recorded in historical texts like the *Wakan Sansai Zue*, traditionally summoned to swallow nightmares but feared for consuming hopes if left unsatisfied."
+    },
+    {
+      "topic": "Ushi-oni",
+      "hint": "A horned, ox-headed coastal monster extensively documented in classical emakimono scrolls and local Western Japan folktales as a harbinger of coastal illusions."
+    },
+    {
+      "topic": "Kasha",
+      "hint": "Documented in Buddhist lore and Edo-period kaidan collections such as the *Shokoku Hyakumonogatari* as a fiery feline yokai descending from storm clouds during funeral services."
+    },
+    {
+      "topic": "Ame-onna",
+      "hint": "Originating in ancient rain-making myths and Toriyama Sekien's *Konjaku Hyakki Shūi*, this spirit is documented as a grim, rain-soaked woman followed permanently by torrential downpours."
+    },
+    {
+      "topic": "The Kelpie",
+      "hint": "A legendary Scottish shape-shifting water horse extensively collected by 19th-century folklorists such as John Gregorson Campbell, known for tricking travelers into mounting its adhesive back before diving into deep lochs."
+    },
+    {
+      "topic": "Huldra (Skogsrå)",
+      "hint": "A prominent Scandinavian forest spirit recorded in the fieldwork of Asbjørnsen and Moe, appearing alluring from the front but hiding a hollow, rotting tree-trunk back and a cow's tail."
+    },
+    {
+      "topic": "Domovoy",
+      "hint": "A Slavic domestic spirit thoroughly chronicled in 19th-century ethnographic records by researchers like Alexander Afanasyev, acting as a shadowy, poltergeist-like presence when household customs are violated."
     }
   ]
 }

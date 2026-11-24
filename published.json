@@ -42,7 +42,7 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 543,
+    "views": 544,
     "likes": 13,
     "comments": 0
   },
@@ -169,7 +169,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 140,
+    "views": 141,
     "likes": 8,
     "comments": 0
   },
@@ -202,7 +202,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 899,
+    "views": 896,
     "likes": 27,
     "comments": 2
   },
@@ -233,7 +233,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 406,
+    "views": 403,
     "likes": 17,
     "comments": 0
   },
@@ -262,8 +262,8 @@
       "silhouette"
     ],
     "privacy": "public",
-    "views": 179,
-    "likes": 6,
+    "views": 184,
+    "likes": 7,
     "comments": 0
   },
   {
@@ -295,7 +295,7 @@
       "street"
     ],
     "privacy": "public",
-    "views": 81,
+    "views": 82,
     "likes": 3,
     "comments": 0
   },
@@ -324,7 +324,7 @@
       "corridor"
     ],
     "privacy": "public",
-    "views": 408,
+    "views": 410,
     "likes": 11,
     "comments": 0
   },
@@ -353,8 +353,36 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 1110,
-    "likes": 17,
+    "views": 1120,
+    "likes": 18,
     "comments": 0
+  },
+  {
+    "date": "2026-11-24",
+    "published_at": "2026-11-24T02:06+00:00",
+    "topic": "Kunekune",
+    "title": "The Terrifying Legend of Kunekune | Japan's Wriggling Figure #Shorts #Shorts",
+    "file": "2026-11-24-kunekune.mp4",
+    "youtube_id": "cJbOf68vHrI",
+    "voice": "bm_george",
+    "hook_style": "warning",
+    "length": "medium",
+    "scenes": 11,
+    "duration_s": 62.1,
+    "hook": "Do not look too closely at the white shape wiggling in the summer heat.",
+    "arts": [
+      "forest",
+      "forest",
+      "forest",
+      "forest",
+      "forest",
+      "street_figure",
+      "eyes",
+      "eyes",
+      "forest",
+      "street_figure",
+      "forest"
+    ],
+    "privacy": "public"
   }
 ]
