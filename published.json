@@ -42,7 +42,7 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 551,
+    "views": 552,
     "likes": 13,
     "comments": 0
   },
@@ -138,7 +138,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 112,
+    "views": 114,
     "likes": 4,
     "comments": 0
   },
@@ -169,7 +169,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 148,
+    "views": 151,
     "likes": 8,
     "comments": 0
   },
@@ -202,7 +202,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 899,
+    "views": 900,
     "likes": 27,
     "comments": 2
   },
@@ -233,7 +233,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 405,
+    "views": 406,
     "likes": 17,
     "comments": 0
   },
@@ -262,7 +262,7 @@
       "silhouette"
     ],
     "privacy": "public",
-    "views": 193,
+    "views": 189,
     "likes": 7,
     "comments": 0
   },
@@ -295,7 +295,7 @@
       "street"
     ],
     "privacy": "public",
-    "views": 88,
+    "views": 86,
     "likes": 3,
     "comments": 0
   },
@@ -324,7 +324,7 @@
       "corridor"
     ],
     "privacy": "public",
-    "views": 443,
+    "views": 452,
     "likes": 13,
     "comments": 0
   },
@@ -353,7 +353,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 1277,
+    "views": 1283,
     "likes": 21,
     "comments": 0
   },
@@ -384,7 +384,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 167,
+    "views": 322,
     "likes": 5,
     "comments": 0
   },
@@ -413,7 +413,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 36,
+    "views": 51,
     "likes": 2,
     "comments": 0
   },
@@ -442,7 +442,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 180,
+    "views": 239,
     "likes": 11,
     "comments": 0
   },
@@ -470,6 +470,37 @@
       "forest",
       "eyes",
       "street_figure",
+      "shrine"
+    ],
+    "privacy": "public",
+    "views": 79,
+    "likes": 6,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-25",
+    "published_at": "2026-11-25T23:30+00:00",
+    "topic": "Ushi-oni",
+    "title": "The Terrifying Legend of Ushi-oni | Japan's Ox Demon Yokai #Shorts #Shorts",
+    "file": "2026-11-25-ushi-oni.mp4",
+    "youtube_id": "Rf_0Lu2Pg40",
+    "voice": "am_onyx",
+    "hook_style": "claim",
+    "length": "medium",
+    "scenes": 11,
+    "duration_s": 80.0,
+    "hook": "Legend warns that meeting the gaze of the horned ox demon can freeze your body in place, leaving you powerless to look away.",
+    "arts": [
+      "eyes",
+      "forest",
+      "shrine",
+      "forest",
+      "street_figure",
+      "forest",
+      "eyes",
+      "shrine",
+      "eyes",
+      "forest",
       "shrine"
     ],
     "privacy": "public"
