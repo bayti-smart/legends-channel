@@ -169,7 +169,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 146,
+    "views": 148,
     "likes": 8,
     "comments": 0
   },
@@ -233,7 +233,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 404,
+    "views": 405,
     "likes": 17,
     "comments": 0
   },
@@ -262,7 +262,7 @@
       "silhouette"
     ],
     "privacy": "public",
-    "views": 191,
+    "views": 193,
     "likes": 7,
     "comments": 0
   },
@@ -324,7 +324,7 @@
       "corridor"
     ],
     "privacy": "public",
-    "views": 442,
+    "views": 443,
     "likes": 13,
     "comments": 0
   },
@@ -353,8 +353,8 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 1269,
-    "likes": 20,
+    "views": 1277,
+    "likes": 21,
     "comments": 0
   },
   {
@@ -384,8 +384,8 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 157,
-    "likes": 3,
+    "views": 167,
+    "likes": 5,
     "comments": 0
   },
   {
@@ -413,7 +413,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 23,
+    "views": 36,
     "likes": 2,
     "comments": 0
   },
@@ -440,6 +440,37 @@
       "eyes",
       "shrine",
       "forest"
+    ],
+    "privacy": "public",
+    "views": 180,
+    "likes": 11,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-25",
+    "published_at": "2026-11-25T04:52+00:00",
+    "topic": "Baku",
+    "title": "The Terrifying Legend of Baku | Japan's Dream Eater #Shorts #Shorts",
+    "file": "2026-11-25-baku.mp4",
+    "youtube_id": "PiY6WcHMyMU",
+    "voice": "am_onyx",
+    "hook_style": "mystery",
+    "length": "medium",
+    "scenes": 11,
+    "duration_s": 67.1,
+    "hook": "For generations in Japan, sleepers kept talismans beside their pillows to fend off bad visions.",
+    "arts": [
+      "shrine",
+      "girl",
+      "forest",
+      "eyes",
+      "street_figure",
+      "street",
+      "shrine",
+      "forest",
+      "eyes",
+      "street_figure",
+      "shrine"
     ],
     "privacy": "public"
   }
