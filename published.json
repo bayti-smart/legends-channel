@@ -353,7 +353,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 1283,
+    "views": 1281,
     "likes": 21,
     "comments": 0
   },
@@ -384,7 +384,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 322,
+    "views": 373,
     "likes": 5,
     "comments": 0
   },
@@ -413,7 +413,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 51,
+    "views": 57,
     "likes": 2,
     "comments": 0
   },
@@ -442,7 +442,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 239,
+    "views": 243,
     "likes": 11,
     "comments": 0
   },
@@ -500,6 +500,37 @@
       "eyes",
       "shrine",
       "eyes",
+      "forest",
+      "shrine"
+    ],
+    "privacy": "public",
+    "views": 98,
+    "likes": 3,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-26",
+    "published_at": "2026-11-26T04:02+00:00",
+    "topic": "Kasha",
+    "title": "The Terrifying Legend of Kasha | Japan's Corpse Demon #Shorts",
+    "file": "2026-11-26-kasha.mp4",
+    "youtube_id": "2WRjUb06d4E",
+    "voice": "bm_george",
+    "hook_style": "warning",
+    "length": "medium",
+    "scenes": 11,
+    "duration_s": 71.4,
+    "hook": "Never let a cat wander near a wake when stormy skies begin to gather.",
+    "arts": [
+      "eyes",
+      "forest",
+      "shrine",
+      "street_figure",
+      "forest",
+      "street",
+      "shrine",
+      "eyes",
+      "shrine",
       "forest",
       "shrine"
     ],
