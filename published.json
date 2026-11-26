@@ -105,7 +105,7 @@
       "eyes"
     ],
     "privacy": "public",
-    "views": 72,
+    "views": 73,
     "likes": 7,
     "comments": 0
   },
@@ -138,7 +138,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 114,
+    "views": 112,
     "likes": 4,
     "comments": 0
   },
@@ -169,7 +169,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 151,
+    "views": 154,
     "likes": 8,
     "comments": 0
   },
@@ -262,7 +262,7 @@
       "silhouette"
     ],
     "privacy": "public",
-    "views": 189,
+    "views": 188,
     "likes": 7,
     "comments": 0
   },
@@ -353,7 +353,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 1281,
+    "views": 1284,
     "likes": 21,
     "comments": 0
   },
@@ -384,7 +384,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 373,
+    "views": 382,
     "likes": 5,
     "comments": 0
   },
@@ -413,7 +413,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 57,
+    "views": 62,
     "likes": 2,
     "comments": 0
   },
@@ -442,7 +442,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 243,
+    "views": 250,
     "likes": 11,
     "comments": 0
   },
@@ -473,7 +473,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 79,
+    "views": 91,
     "likes": 6,
     "comments": 0
   },
@@ -504,7 +504,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 98,
+    "views": 129,
     "likes": 3,
     "comments": 0
   },
@@ -532,6 +532,37 @@
       "eyes",
       "shrine",
       "forest",
+      "shrine"
+    ],
+    "privacy": "public",
+    "views": 137,
+    "likes": 3,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-26",
+    "published_at": "2026-11-26T23:12+00:00",
+    "topic": "Ame-onna",
+    "title": "The Terrifying Japanese Legend of Ame-onna | Rain Woman #Shorts #Shorts",
+    "file": "2026-11-26-ame-onna.mp4",
+    "youtube_id": "wGBrqP6pt1I",
+    "voice": "bm_george",
+    "hook_style": "claim",
+    "length": "medium",
+    "scenes": 11,
+    "duration_s": 74.6,
+    "hook": "If an unnatural downpour follows your every step, some believe a shadow walks beside you.",
+    "arts": [
+      "street_figure",
+      "street",
+      "forest",
+      "shrine",
+      "street_figure",
+      "forest",
+      "shrine",
+      "eyes",
+      "street_figure",
+      "street",
       "shrine"
     ],
     "privacy": "public"
