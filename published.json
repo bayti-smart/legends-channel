@@ -42,7 +42,7 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 553,
+    "views": 554,
     "likes": 13,
     "comments": 0
   },
@@ -75,7 +75,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 51,
+    "views": 52,
     "likes": 5,
     "comments": 0
   },
@@ -169,7 +169,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 154,
+    "views": 155,
     "likes": 8,
     "comments": 0
   },
@@ -202,7 +202,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 901,
+    "views": 903,
     "likes": 27,
     "comments": 2
   },
@@ -233,7 +233,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 406,
+    "views": 410,
     "likes": 17,
     "comments": 0
   },
@@ -262,7 +262,7 @@
       "silhouette"
     ],
     "privacy": "public",
-    "views": 188,
+    "views": 189,
     "likes": 7,
     "comments": 0
   },
@@ -295,7 +295,7 @@
       "street"
     ],
     "privacy": "public",
-    "views": 86,
+    "views": 87,
     "likes": 3,
     "comments": 0
   },
@@ -324,7 +324,7 @@
       "corridor"
     ],
     "privacy": "public",
-    "views": 452,
+    "views": 453,
     "likes": 13,
     "comments": 0
   },
@@ -353,7 +353,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 1285,
+    "views": 1286,
     "likes": 21,
     "comments": 0
   },
@@ -384,7 +384,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 381,
+    "views": 383,
     "likes": 5,
     "comments": 0
   },
@@ -413,7 +413,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 63,
+    "views": 65,
     "likes": 2,
     "comments": 0
   },
@@ -442,7 +442,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 250,
+    "views": 253,
     "likes": 11,
     "comments": 0
   },
@@ -473,7 +473,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 92,
+    "views": 97,
     "likes": 6,
     "comments": 0
   },
@@ -504,8 +504,8 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 132,
-    "likes": 3,
+    "views": 145,
+    "likes": 4,
     "comments": 0
   },
   {
@@ -535,7 +535,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 138,
+    "views": 144,
     "likes": 3,
     "comments": 0
   },
@@ -566,8 +566,8 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 137,
-    "likes": 7,
+    "views": 161,
+    "likes": 6,
     "comments": 0
   },
   {
@@ -593,6 +593,39 @@
       "eyes",
       "forest",
       "eyes",
+      "forest",
+      "forest"
+    ],
+    "privacy": "public",
+    "views": 93,
+    "likes": 4,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-27",
+    "published_at": "2026-11-27T23:02+00:00",
+    "topic": "Huldra (Skogsrå)",
+    "title": "The Terrifying Nordic Legend of the Huldra #Shorts",
+    "file": "2026-11-27-huldra-skogsr.mp4",
+    "youtube_id": "tTwe6YdB8i8",
+    "voice": "am_onyx",
+    "hook_style": "warning",
+    "length": "long",
+    "scenes": 13,
+    "duration_s": 73.3,
+    "hook": "Do not follow a beautiful stranger deep into the Scandinavian pines.",
+    "arts": [
+      "forest",
+      "forest",
+      "forest",
+      "forest",
+      "forest",
+      "forest",
+      "forest",
+      "forest",
+      "forest",
+      "forest",
+      "forest",
       "forest",
       "forest"
     ],
