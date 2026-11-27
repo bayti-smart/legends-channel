@@ -42,7 +42,7 @@
       "snow"
     ],
     "privacy": "public",
-    "views": 552,
+    "views": 553,
     "likes": 13,
     "comments": 0
   },
@@ -202,7 +202,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 900,
+    "views": 901,
     "likes": 27,
     "comments": 2
   },
@@ -353,7 +353,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 1284,
+    "views": 1285,
     "likes": 21,
     "comments": 0
   },
@@ -384,7 +384,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 382,
+    "views": 381,
     "likes": 5,
     "comments": 0
   },
@@ -413,7 +413,7 @@
       "forest"
     ],
     "privacy": "public",
-    "views": 62,
+    "views": 63,
     "likes": 2,
     "comments": 0
   },
@@ -473,7 +473,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 91,
+    "views": 92,
     "likes": 6,
     "comments": 0
   },
@@ -504,7 +504,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 129,
+    "views": 132,
     "likes": 3,
     "comments": 0
   },
@@ -535,7 +535,7 @@
       "shrine"
     ],
     "privacy": "public",
-    "views": 137,
+    "views": 138,
     "likes": 3,
     "comments": 0
   },
@@ -564,6 +564,37 @@
       "street_figure",
       "street",
       "shrine"
+    ],
+    "privacy": "public",
+    "views": 137,
+    "likes": 7,
+    "comments": 0
+  },
+  {
+    "date": "2026-11-27",
+    "published_at": "2026-11-27T04:15+00:00",
+    "topic": "The Kelpie",
+    "title": "The Terrifying Scottish Legend of the Kelpie | Water Horse #Shorts #Shorts",
+    "file": "2026-11-27-the-kelpie.mp4",
+    "youtube_id": "xplMeOcy5s0",
+    "voice": "am_onyx",
+    "hook_style": "claim",
+    "length": "medium",
+    "scenes": 11,
+    "duration_s": 65.0,
+    "hook": "Never mount a dark stallion standing motionless beside a foggy Scottish river.",
+    "arts": [
+      "forest",
+      "forest",
+      "forest",
+      "forest",
+      "forest",
+      "eyes",
+      "eyes",
+      "forest",
+      "eyes",
+      "forest",
+      "forest"
     ],
     "privacy": "public"
   }
